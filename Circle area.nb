@@ -1,0 +1,36 @@
+Notebook[{Cell[
+BoxData[RowBox[{"Clear","[","\"`*\"","]"}]],"Input",CellLabel -> "In[106]:= ",
+ExpressionUUID -> "246fc854-1c0e-4dd1-81ec-f09e946e3f76"],Cell[
+BoxData[RowBox[{"assum",":=",RowBox[
+{"Assumptions","\[Rule]",RowBox[{"{",RowBox[{"r",">","0"}],"}"}]}]}]],"Input",CellLabel -> "In[107]:= ",
+ExpressionUUID -> "ee51aaf8-77d8-4514-bbd5-076803e7e73e"],Cell[
+CellGroupData[{Cell[
+BoxData[
+RowBox[{"Solve","[",RowBox[{RowBox[{RowBox[{"x","^","2"}],"+",RowBox[{"y","^","2"}]}],"==",RowBox[
+{"r","^","2"}]}],"]"}]],"Input",CellLabel -> "In[108]:= ",ExpressionUUID -> "992401a4-d8bc-46a6-ba4f-4da5cd08d8c4"],Cell[
+BoxData[
+RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"y","\[Rule]",RowBox[{"-",SqrtBox[RowBox[
+{SuperscriptBox["r","2"],"-",SuperscriptBox["x","2"]}]]}]}],"}"}],",",RowBox[{"{",RowBox[
+{"y","\[Rule]",SqrtBox[RowBox[{SuperscriptBox["r","2"],"-",SuperscriptBox["x","2"]}]]}],"}"}]}],"}"}],
+StandardForm],"Output",CellLabel -> "Out[108]= ",ExpressionUUID -> "27efa0f7-baf8-4cb0-a4f0-1f08ef7f09b1"]},
+Open],ExpressionUUID -> "590aaae9-304c-4476-96c6-79d161724545"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{RowBox[{RowBox[{RowBox[{"(",RowBox[{"y","/.",RowBox[{"%","[",RowBox[
+{"[",RowBox[{"1",",","1"}],"]"}],"]"}]}],")"}],"-",RowBox[{"(",RowBox[{"y","/.",RowBox[
+{"%","[",RowBox[{"[",RowBox[{"2",",","1"}],"]"}],"]"}]}],")"}]}],"//","Abs"}],"//",RowBox[
+{RowBox[{"Simplify","[",RowBox[{"#",",","asssum"}],"]"}],"&"}]}]],"Input",CellLabel -> "In[109]:= ",
+ExpressionUUID -> "2d814223-3f79-4cc4-90d7-bd300ed084a7"],Cell[
+BoxData[RowBox[{"2"," ",SqrtBox[
+RowBox[{"Abs","[",RowBox[{SuperscriptBox["r","2"],"-",SuperscriptBox["x","2"]}],"]"}]]}],
+StandardForm],"Output",CellLabel -> "Out[109]= ",ExpressionUUID -> "eb0a5740-a197-4ab5-b1a5-80c2929f63fd"]},
+Open],ExpressionUUID -> "c83c94a2-d56d-4d13-a597-184b249914cf"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"Integrate","[",RowBox[{"%",",",RowBox[{"{",RowBox[{"x",",",RowBox[
+{"-","r"}],",","r"}],"}"}],",","assum"}],"]"}]],"Input",CellLabel -> "In[110]:= ",
+ExpressionUUID -> "7ce15b3e-f5b5-4a50-84cf-b7f69d978f24"],Cell[
+BoxData[RowBox[{"\[Pi]"," ",SuperscriptBox[
+"r","2"]}],StandardForm],"Output",CellLabel -> "Out[110]= ",ExpressionUUID -> "0711cbc2-8841-4f5b-aca7-8d902acda4ab"]},
+Open],ExpressionUUID -> "153effb6-a4a8-46e1-9c69-6059f3baa008"]},StyleDefinitions -> "Default.nb",
+FrontEndVersion -> "12.3 for Wolfram Cloud 1.58.2 (April 29, 2021)"]

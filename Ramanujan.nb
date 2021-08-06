@@ -1,0 +1,187 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5838,        177]
+NotebookOptionsPosition[      4702,        148]
+NotebookOutlinePosition[      5099,        164]
+CellTagsIndexPosition[      5056,        161]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"r", "=", 
+  RowBox[{"Integrate", "[", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"Sqrt", "[", 
+      RowBox[{
+       RowBox[{
+        FractionBox["1", "2"], 
+        RowBox[{"Sqrt", "[", 
+         FractionBox[
+          SuperscriptBox[
+           RowBox[{"Log", "[", 
+            RowBox[{"Cos", "[", "\[Theta]", "]"}], "]"}], "2"], 
+          RowBox[{
+           SuperscriptBox["\[Theta]", "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"Log", "[", 
+             RowBox[{"Cos", "[", "\[Theta]", "]"}], "]"}], "2"]}]], "]"}]}], 
+       "+", 
+       FractionBox["1", "2"]}], "]"}], 
+     RowBox[{"Surd", "[", 
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["\[Theta]", "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"Log", "[", 
+          RowBox[{"Cos", "[", "\[Theta]", "]"}], "]"}], "2"]}], ",", "4"}], 
+      "]"}]], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Theta]", ",", "0", ",", 
+      FractionBox["\[Pi]", "2"]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8342601793433647`*^9, 3.834260258105198*^9}, {
+  3.8342603121333857`*^9, 3.8342603466220713`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"215e1b7c-2db3-4868-9813-f828ced6ef14"],
+
+Cell[BoxData[
+ RowBox[{
+  SubsuperscriptBox["\[Integral]", "0", 
+   FractionBox["\[Pi]", "2"]], 
+  RowBox[{
+   FractionBox[
+    SqrtBox[
+     RowBox[{
+      FractionBox["1", "2"], "+", 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox[
+        FractionBox[
+         SuperscriptBox[
+          RowBox[{"Log", "[", 
+           RowBox[{"Cos", "[", "\[Theta]", "]"}], "]"}], "2"], 
+         RowBox[{
+          SuperscriptBox["\[Theta]", "2"], "+", 
+          SuperscriptBox[
+           RowBox[{"Log", "[", 
+            RowBox[{"Cos", "[", "\[Theta]", "]"}], "]"}], "2"]}]]]}]}]], 
+    RadicalBox[
+     RowBox[{
+      SuperscriptBox["\[Theta]", "2"], "+", 
+      SuperscriptBox[
+       RowBox[{"Log", "[", 
+        RowBox[{"Cos", "[", "\[Theta]", "]"}], "]"}], "2"]}], "4",
+     MultilineFunction->None,
+     SurdForm->True]], 
+   RowBox[{"\[DifferentialD]", "\[Theta]"}]}]}]], "Output",
+ CellChangeTimes->{3.8342604442615433`*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"eb80bc3a-73cd-4ccf-8681-66aeba218df0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"r", "//", 
+  RowBox[{
+   RowBox[{"N", "[", 
+    RowBox[{"#", ",", "100"}], "]"}], "&"}]}]], "Input",
+ CellChangeTimes->{{3.834260781102603*^9, 3.834260784013073*^9}, {
+  3.834260827817442*^9, 3.8342608312135468`*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"9aeceb74-cbcd-4712-8ada-7c06f633e322"],
+
+Cell[BoxData["1.\
+886718667752793598373421596641707203438612863286940287727532189335363458890295\
+3989937665125938069750842865260046953`100."], "Output",
+ CellChangeTimes->{3.834260784622426*^9, 3.834260878628354*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"4e27c184-e3c5-4e57-9039-5d8f59f3e315"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"b", "=", 
+  FractionBox["\[Pi]", 
+   RowBox[{"2", 
+    RowBox[{"Sqrt", "[", 
+     RowBox[{"Log", "[", "2", "]"}], "]"}]}]]}]], "Input",
+ CellChangeTimes->{{3.834260806495182*^9, 3.834260815621807*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"09d2d41e-f28c-4c2e-bc0d-490e377f8848"],
+
+Cell[BoxData[
+ FractionBox["\[Pi]", 
+  RowBox[{"2", " ", 
+   SqrtBox[
+    RowBox[{"Log", "[", "2", "]"}]]}]]], "Output",
+ CellChangeTimes->{3.834260817392767*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"ad8a21b0-b151-47e2-b5eb-f9e5fd074740"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"b", "//", 
+  RowBox[{
+   RowBox[{"N", "[", 
+    RowBox[{"#", ",", "100"}], "]"}], "&"}]}]], "Input",
+ CellChangeTimes->{{3.83426081927942*^9, 3.834260820821197*^9}, {
+  3.8342608655333548`*^9, 3.834260868620653*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"18a577b1-d9dd-4c6a-b213-a57f0d732f13"],
+
+Cell[BoxData["1.\
+886718667752793598373421596641707203438612863286940287727532189335363458890295\
+3989937665125938069750842865260046953`100."], "Output",
+ CellChangeTimes->{3.834260821031699*^9, 3.834260878711072*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"e93d48cc-bb8a-456f-b6ac-e24c93b34d05"]
+}, Open  ]]
+},
+WindowSize->{1024.5, 527.25},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.2 for Linux x86 (64-bit) (February 5, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"d593bc09-c3e1-4719-a934-047ff7ffd999"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1193, 34, 65, "Input",ExpressionUUID->"215e1b7c-2db3-4868-9813-f828ced6ef14"],
+Cell[1776, 58, 1020, 31, 79, "Output",ExpressionUUID->"eb80bc3a-73cd-4ccf-8681-66aeba218df0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2833, 94, 319, 7, 29, "Input",ExpressionUUID->"9aeceb74-cbcd-4712-8ada-7c06f633e322"],
+Cell[3155, 103, 295, 4, 33, "Output",ExpressionUUID->"4e27c184-e3c5-4e57-9039-5d8f59f3e315"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3487, 112, 303, 7, 45, "Input",ExpressionUUID->"09d2d41e-f28c-4c2e-bc0d-490e377f8848"],
+Cell[3793, 121, 240, 6, 51, "Output",ExpressionUUID->"ad8a21b0-b151-47e2-b5eb-f9e5fd074740"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4070, 132, 318, 7, 29, "Input",ExpressionUUID->"18a577b1-d9dd-4c6a-b213-a57f0d732f13"],
+Cell[4391, 141, 295, 4, 56, "Output",ExpressionUUID->"e93d48cc-bb8a-456f-b6ac-e24c93b34d05"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

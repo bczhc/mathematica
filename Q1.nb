@@ -1,0 +1,31 @@
+Notebook[{Cell[
+BoxData[TemplateBox[{"Solve","fulldim","\"The solution set contains a full-dimensional component; use Reduce for complete solution information.\"",2,1,1,23382828223087613170,"Local"},
+"MessageTemplate"],StandardForm],"Message","MSG",ExpressionUUID -> "9e683111-81c4-44e9-a981-b7711e7ea84a"],Cell[
+BoxData[
+RowBox[{"{",RowBox[{"{","}"}],"}"}],StandardForm],"Output",CellLabel -> "Out[1]= ",
+ExpressionUUID -> "b6d8a453-ea65-4f25-b79e-f8414620a7c7"],Cell[
+BoxData[RowBox[{"{","}"}],
+StandardForm],"Output",CellLabel -> "Out[8]= ",ExpressionUUID -> "9cc4d56a-0037-4a23-9f28-5302a74e2988"],Cell[
+CellGroupData[
+{Cell[
+BoxData[{RowBox[{RowBox[{"Reduce","[",RowBox[{RowBox[{RowBox[{RowBox[{RowBox[
+{"(",RowBox[{RowBox[{"m","^","2"}],"-","m"}],")"}],RowBox[{"(",RowBox[{"2","^","x"}],")"}]}],"-",RowBox[
+{RowBox[{"(",RowBox[{"1","/","2"}],")"}],"^","x"}]}],"<","1"}],",","m"}],"]"}],"//",RowBox[
+{RowBox[{"Simplify","[",RowBox[{"#",",",RowBox[{"Assumptions","\[Rule]",RowBox[{"{",RowBox[
+{RowBox[{"x","<",RowBox[{"-","1"}]}],",",RowBox[{RowBox[{"-","Infinity"}],"<","m","<","Infinity"}]}],"}"}]}]}],"]"}],"&"}]}],"\n",RowBox[
+{"Reduce","[",RowBox[{RowBox[{"ForAll","[",RowBox[{"x",",","%"}],"]"}],",","m"}],"]"}]}],
+"Input",CellLabel -> "In[43]:= ",ExpressionUUID -> "a1a83c86-560b-45eb-a0d5-14987610d617"],Cell[
+BoxData[
+RowBox[{RowBox[{"-",SuperscriptBox["2",RowBox[{"-","x"}]]}],"<","m","<",RowBox[{"1","+",SuperscriptBox[
+"2",RowBox[{"-","x"}]]}]}],StandardForm],"Output",CellLabel -> "Out[43]= ",ExpressionUUID -> "55e6f6d7-6400-4dc9-a475-824f12171d35"],Cell[
+BoxData[
+TemplateBox[{"Reduce","nsmet","\"This system cannot be solved with the methods available to Reduce.\"",2,44,6,32839768268426522630,"Local"},
+"MessageTemplate"],StandardForm],"Message","MSG",ExpressionUUID -> "1b12e1d3-134e-4180-8a00-6334cb17b41d"],Cell[
+BoxData[
+RowBox[{"Reduce","[",RowBox[{RowBox[{SubscriptBox["\[ForAll]","x"],RowBox[{RowBox[
+{"-",SuperscriptBox["2",RowBox[{"-","x"}]]}],"<","m","<",RowBox[{"1","+",SuperscriptBox[
+"2",RowBox[{"-","x"}]]}]}]}],",","m"}],"]"}],StandardForm],"Output",CellLabel -> "Out[44]= ",
+ExpressionUUID -> "be9e5766-a34d-441c-bb44-7cf496d02a8b"]},Open],ExpressionUUID -> "6f19dd0e-b208-4f6a-ac90-94cffd255adf"],Cell[
+BoxData[
+RowBox[{}]],"Input",CellLabel -> "In[45]:= ",ExpressionUUID -> "126f9664-1341-4cbc-acd2-b533557df32d"]},
+StyleDefinitions -> "Default.nb",FrontEndVersion -> "12.3 for Wolfram Cloud 1.58.2.1 (May 19, 2021)"]

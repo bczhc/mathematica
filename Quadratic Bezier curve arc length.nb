@@ -1,0 +1,660 @@
+Notebook[{Cell[
+BoxData[RowBox[{"assum","=",RowBox[{"Assumptions","\[Rule]",RowBox[
+{"{","}"}]}]}]],"Input",ExpressionUUID -> "5769be44-8a00-4bce-9bfc-94331d0730f3"],Cell[
+BoxData[
+RowBox[{"Clear","[","\"`*\"","]"}]],"Input",CellLabel -> "In[113]:= ",ExpressionUUID -> "0e69f116-3455-4dee-a778-ba46a8cd2a1e"],Cell[
+BoxData[
+{RowBox[{RowBox[{"x0","=",RowBox[{"Subscript","[",RowBox[{"x",",","0"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"x1","=",RowBox[{"Subscript","[",RowBox[{"x",",","1"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"x2","=",RowBox[{"Subscript","[",RowBox[{"x",",","2"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"y0","=",RowBox[{"Subscript","[",RowBox[{"y",",","0"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"y1","=",RowBox[{"Subscript","[",RowBox[{"y",",","1"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"y2","=",RowBox[{"Subscript","[",RowBox[{"y",",","2"}],"]"}]}],";"}]}],"Input",
+CellLabel -> "In[114]:= ",ExpressionUUID -> "a7822d06-e6d0-44af-b2c6-fb166eba2003"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"tmp","=",RowBox[{RowBox[{"(",RowBox[{RowBox[{RowBox[{"(",RowBox[
+{RowBox[{"2","t"}],"-","2"}],")"}]," ","var0"}],"+",RowBox[{RowBox[{"(",RowBox[{RowBox[
+{RowBox[{"-","4"}],"t"}],"+","2"}],")"}],"var1"}],"+",RowBox[{"2","t"," ","var2"}]}],")"}],"^","2"}]}]],
+"Input",CellLabel -> "In[120]:= ",ExpressionUUID -> "478d004c-c797-42d8-a873-a6581bd5cdb1"],Cell[
+BoxData[
+SuperscriptBox[RowBox[{"(",RowBox[{RowBox[{RowBox[{"(",RowBox[{RowBox[{"-","2"}],"+",RowBox[
+{"2"," ","t"}]}],")"}]," ","var0"}],"+",RowBox[{RowBox[{"(",RowBox[{"2","-",RowBox[
+{"4"," ","t"}]}],")"}]," ","var1"}],"+",RowBox[{"2"," ","t"," ","var2"}]}],")"}],
+"2"],StandardForm],"Output",CellLabel -> "Out[120]= ",ExpressionUUID -> "f6b5dc1d-fc87-4ee6-a105-65c5e14366bc"]},
+Open],ExpressionUUID -> "1cb341b1-15bc-41d3-bba2-94919497d1bb"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"v","=",RowBox[{RowBox[{RowBox[{"(",RowBox[{"tmp","/.",RowBox[
+{"{","\n",RowBox[{RowBox[{"var0","\[Rule]","x0"}],",","\n",RowBox[{"var1","\[Rule]","x1"}],",","\n",RowBox[
+{"var2","\[Rule]","x2"}]}],"\n","}"}]}],")"}],"+",RowBox[{"(",RowBox[{"tmp","/.",RowBox[
+{"{","\n",RowBox[{RowBox[{"var0","\[Rule]","y0"}],",","\n",RowBox[{"var1","\[Rule]","y1"}],",","\n",RowBox[
+{"var2","\[Rule]","y2"}]}],"\n","}"}]}],")"}]}],"//","Sqrt"}]}]],"Input",CellLabel -> "In[121]:= ",
+ExpressionUUID -> "b6c78682-6bf5-4c01-80b1-8b3eaa454847"],Cell[
+BoxData[SqrtBox[RowBox[
+{SuperscriptBox[RowBox[{"(",RowBox[{RowBox[{RowBox[{"(",RowBox[{RowBox[{"-","2"}],"+",RowBox[
+{"2"," ","t"}]}],")"}]," ",SubscriptBox["x","0"]}],"+",RowBox[{RowBox[{"(",RowBox[
+{"2","-",RowBox[{"4"," ","t"}]}],")"}]," ",SubscriptBox["x","1"]}],"+",RowBox[{"2"," ","t"," ",SubscriptBox[
+"x","2"]}]}],")"}],"2"],"+",SuperscriptBox[RowBox[{"(",RowBox[{RowBox[{RowBox[{"(",RowBox[
+{RowBox[{"-","2"}],"+",RowBox[{"2"," ","t"}]}],")"}]," ",SubscriptBox["y","0"]}],"+",RowBox[
+{RowBox[{"(",RowBox[{"2","-",RowBox[{"4"," ","t"}]}],")"}]," ",SubscriptBox["y","1"]}],"+",RowBox[
+{"2"," ","t"," ",SubscriptBox["y","2"]}]}],")"}],"2"]}]],StandardForm],"Output",CellLabel -> "Out[121]= ",
+ExpressionUUID -> "91d07ed3-0fe1-468e-9ae9-12d78469650e"]},Open],ExpressionUUID -> "205f5abe-966c-4a6a-959e-55010987bac9"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"r","=",RowBox[{"Integrate","[",RowBox[{"v",",",RowBox[{"{",RowBox[
+{"t",",","0",",","1"}],"}"}]}],"]"}]}]],"Input",CellLabel -> "In[122]:= ",ExpressionUUID -> "fbd196cd-aaca-4580-a82a-ae6f4885048f"],Cell[
+BoxData[
+TemplateBox[{RowBox[{FractionBox[RowBox[{SqrtBox[RowBox[{SubsuperscriptBox["x","1",
+"2"],"-",RowBox[{"2"," ",SubscriptBox["x","1"]," ",SubscriptBox["x","2"]}],"+",SubsuperscriptBox[
+"x","2","2"],"+",SuperscriptBox[RowBox[{"(",RowBox[{SubscriptBox["y","1"],"-",SubscriptBox[
+"y","2"]}],")"}],"2"]}]]," ",RowBox[{"(",RowBox[{RowBox[{"2"," ",SubsuperscriptBox[
+"x","1","2"]}],"-",RowBox[{"3"," ",SubscriptBox["x","1"]," ",SubscriptBox["x","2"]}],"+",SubsuperscriptBox[
+"x","2","2"],"+",RowBox[{SubscriptBox["x","0"]," ",RowBox[{"(",RowBox[{RowBox[{"-",SubscriptBox[
+"x","1"]}],"+",SubscriptBox["x","2"]}],")"}]}],"-",RowBox[{SubscriptBox["y","0"]," ",SubscriptBox[
+"y","1"]}],"+",RowBox[{"2"," ",SubsuperscriptBox["y","1","2"]}],"+",RowBox[{SubscriptBox[
+"y","0"]," ",SubscriptBox["y","2"]}],"-",RowBox[{"3"," ",SubscriptBox["y","1"]," ",SubscriptBox[
+"y","2"]}],"+",SubsuperscriptBox["y","2","2"]}],")"}]}],RowBox[{SubsuperscriptBox[
+"x","0","2"],"+",RowBox[{"4"," ",SubsuperscriptBox["x","1","2"]}],"-",RowBox[{"4"," ",SubscriptBox[
+"x","1"]," ",SubscriptBox["x","2"]}],"+",SubsuperscriptBox["x","2","2"],"+",RowBox[
+{SubscriptBox["x","0"]," ",RowBox[{"(",RowBox[{RowBox[{RowBox[{"-","4"}]," ",SubscriptBox[
+"x","1"]}],"+",RowBox[{"2"," ",SubscriptBox["x","2"]}]}],")"}]}],"+",SubsuperscriptBox[
+"y","0","2"],"-",RowBox[{"4"," ",SubscriptBox["y","0"]," ",SubscriptBox["y","1"]}],"+",RowBox[
+{"4"," ",SubsuperscriptBox["y","1","2"]}],"+",RowBox[{"2"," ",SubscriptBox["y","0"]," ",SubscriptBox[
+"y","2"]}],"-",RowBox[{"4"," ",SubscriptBox["y","1"]," ",SubscriptBox["y","2"]}],"+",SubsuperscriptBox[
+"y","2","2"]}]],"+",FractionBox[RowBox[{SqrtBox[RowBox[{SubsuperscriptBox["x","0",
+"2"],"-",RowBox[{"2"," ",SubscriptBox["x","0"]," ",SubscriptBox["x","1"]}],"+",SubsuperscriptBox[
+"x","1","2"],"+",SuperscriptBox[RowBox[{"(",RowBox[{SubscriptBox["y","0"],"-",SubscriptBox[
+"y","1"]}],")"}],"2"]}]]," ",RowBox[{"(",RowBox[{SubsuperscriptBox["x","0","2"],"+",RowBox[
+{"2"," ",SubsuperscriptBox["x","1","2"]}],"-",RowBox[{SubscriptBox["x","1"]," ",SubscriptBox[
+"x","2"]}],"+",RowBox[{SubscriptBox["x","0"]," ",RowBox[{"(",RowBox[{RowBox[{RowBox[
+{"-","3"}]," ",SubscriptBox["x","1"]}],"+",SubscriptBox["x","2"]}],")"}]}],"+",RowBox[
+{RowBox[{"(",RowBox[{SubscriptBox["y","0"],"-",SubscriptBox["y","1"]}],")"}]," ",RowBox[
+{"(",RowBox[{SubscriptBox["y","0"],"-",RowBox[{"2"," ",SubscriptBox["y","1"]}],"+",SubscriptBox[
+"y","2"]}],")"}]}]}],")"}]}],RowBox[{SubsuperscriptBox["x","0","2"],"+",RowBox[{"4"," ",SubsuperscriptBox[
+"x","1","2"]}],"-",RowBox[{"4"," ",SubscriptBox["x","1"]," ",SubscriptBox["x","2"]}],"+",SubsuperscriptBox[
+"x","2","2"],"+",RowBox[{SubscriptBox["x","0"]," ",RowBox[{"(",RowBox[{RowBox[{RowBox[
+{"-","4"}]," ",SubscriptBox["x","1"]}],"+",RowBox[{"2"," ",SubscriptBox["x","2"]}]}],")"}]}],"+",SubsuperscriptBox[
+"y","0","2"],"-",RowBox[{"4"," ",SubscriptBox["y","0"]," ",SubscriptBox["y","1"]}],"+",RowBox[
+{"4"," ",SubsuperscriptBox["y","1","2"]}],"+",RowBox[{"2"," ",SubscriptBox["y","0"]," ",SubscriptBox[
+"y","2"]}],"-",RowBox[{"4"," ",SubscriptBox["y","1"]," ",SubscriptBox["y","2"]}],"+",SubsuperscriptBox[
+"y","2","2"]}]],"-",FractionBox[RowBox[{RowBox[{"Log","[",RowBox[{RowBox[{"-",SubsuperscriptBox[
+"x","0","2"]}],"+",RowBox[{"3"," ",SubscriptBox["x","0"]," ",SubscriptBox["x","1"]}],"-",RowBox[
+{"2"," ",SubsuperscriptBox["x","1","2"]}],"-",RowBox[{SubscriptBox["x","0"]," ",SubscriptBox[
+"x","2"]}],"+",RowBox[{SubscriptBox["x","1"]," ",SubscriptBox["x","2"]}],"-",SubsuperscriptBox[
+"y","0","2"],"+",RowBox[{"3"," ",SubscriptBox["y","0"]," ",SubscriptBox["y","1"]}],"-",RowBox[
+{"2"," ",SubsuperscriptBox["y","1","2"]}],"-",RowBox[{SubscriptBox["y","0"]," ",SubscriptBox[
+"y","2"]}],"+",RowBox[{SubscriptBox["y","1"]," ",SubscriptBox["y","2"]}],"+",RowBox[
+{SqrtBox[RowBox[{SubsuperscriptBox["x","0","2"],"-",RowBox[{"2"," ",SubscriptBox[
+"x","0"]," ",SubscriptBox["x","1"]}],"+",SubsuperscriptBox["x","1","2"],"+",SuperscriptBox[
+RowBox[{"(",RowBox[{SubscriptBox["y","0"],"-",SubscriptBox["y","1"]}],")"}],"2"]}]]," ",SqrtBox[
+RowBox[{SubsuperscriptBox["x","0","2"],"+",RowBox[{"4"," ",SubsuperscriptBox["x",
+"1","2"]}],"-",RowBox[{"4"," ",SubscriptBox["x","1"]," ",SubscriptBox["x","2"]}],"+",SubsuperscriptBox[
+"x","2","2"],"+",RowBox[{SubscriptBox["x","0"]," ",RowBox[{"(",RowBox[{RowBox[{RowBox[
+{"-","4"}]," ",SubscriptBox["x","1"]}],"+",RowBox[{"2"," ",SubscriptBox["x","2"]}]}],")"}]}],"+",SubsuperscriptBox[
+"y","0","2"],"-",RowBox[{"4"," ",SubscriptBox["y","0"]," ",SubscriptBox["y","1"]}],"+",RowBox[
+{"4"," ",SubsuperscriptBox["y","1","2"]}],"+",RowBox[{"2"," ",SubscriptBox["y","0"]," ",SubscriptBox[
+"y","2"]}],"-",RowBox[{"4"," ",SubscriptBox["y","1"]," ",SubscriptBox["y","2"]}],"+",SubsuperscriptBox[
+"y","2","2"]}]]}]}],"]"}]," ",SuperscriptBox[RowBox[{"(",RowBox[{RowBox[{SubscriptBox[
+"x","2"]," ",RowBox[{"(",RowBox[{RowBox[{"-",SubscriptBox["y","0"]}],"+",SubscriptBox[
+"y","1"]}],")"}]}],"+",RowBox[{SubscriptBox["x","1"]," ",RowBox[{"(",RowBox[{SubscriptBox[
+"y","0"],"-",SubscriptBox["y","2"]}],")"}]}],"+",RowBox[{SubscriptBox["x","0"]," ",RowBox[
+{"(",RowBox[{RowBox[{"-",SubscriptBox["y","1"]}],"+",SubscriptBox["y","2"]}],")"}]}]}],")"}],
+"2"]}],SuperscriptBox[RowBox[{"(",RowBox[{SubsuperscriptBox["x","0","2"],"+",RowBox[
+{"4"," ",SubsuperscriptBox["x","1","2"]}],"-",RowBox[{"4"," ",SubscriptBox["x","1"]," ",SubscriptBox[
+"x","2"]}],"+",SubsuperscriptBox["x","2","2"],"+",RowBox[{SubscriptBox["x","0"]," ",RowBox[
+{"(",RowBox[{RowBox[{RowBox[{"-","4"}]," ",SubscriptBox["x","1"]}],"+",RowBox[{"2"," ",SubscriptBox[
+"x","2"]}]}],")"}]}],"+",SubsuperscriptBox["y","0","2"],"-",RowBox[{"4"," ",SubscriptBox[
+"y","0"]," ",SubscriptBox["y","1"]}],"+",RowBox[{"4"," ",SubsuperscriptBox["y","1",
+"2"]}],"+",RowBox[{"2"," ",SubscriptBox["y","0"]," ",SubscriptBox["y","2"]}],"-",RowBox[
+{"4"," ",SubscriptBox["y","1"]," ",SubscriptBox["y","2"]}],"+",SubsuperscriptBox[
+"y","2","2"]}],")"}],RowBox[{"3","/","2"}]]],"+",FractionBox[RowBox[{RowBox[{"Log","[",RowBox[
+{RowBox[{RowBox[{"-",SubscriptBox["x","0"]}]," ",SubscriptBox["x","1"]}],"+",RowBox[
+{"2"," ",SubsuperscriptBox["x","1","2"]}],"+",RowBox[{SubscriptBox["x","0"]," ",SubscriptBox[
+"x","2"]}],"-",RowBox[{"3"," ",SubscriptBox["x","1"]," ",SubscriptBox["x","2"]}],"+",SubsuperscriptBox[
+"x","2","2"],"-",RowBox[{SubscriptBox["y","0"]," ",SubscriptBox["y","1"]}],"+",RowBox[
+{"2"," ",SubsuperscriptBox["y","1","2"]}],"+",RowBox[{SubscriptBox["y","0"]," ",SubscriptBox[
+"y","2"]}],"-",RowBox[{"3"," ",SubscriptBox["y","1"]," ",SubscriptBox["y","2"]}],"+",SubsuperscriptBox[
+"y","2","2"],"+",RowBox[{SqrtBox[RowBox[{SubsuperscriptBox["x","1","2"],"-",RowBox[
+{"2"," ",SubscriptBox["x","1"]," ",SubscriptBox["x","2"]}],"+",SubsuperscriptBox[
+"x","2","2"],"+",SuperscriptBox[RowBox[{"(",RowBox[{SubscriptBox["y","1"],"-",SubscriptBox[
+"y","2"]}],")"}],"2"]}]]," ",SqrtBox[RowBox[{SubsuperscriptBox["x","0","2"],"+",RowBox[
+{"4"," ",SubsuperscriptBox["x","1","2"]}],"-",RowBox[{"4"," ",SubscriptBox["x","1"]," ",SubscriptBox[
+"x","2"]}],"+",SubsuperscriptBox["x","2","2"],"+",RowBox[{SubscriptBox["x","0"]," ",RowBox[
+{"(",RowBox[{RowBox[{RowBox[{"-","4"}]," ",SubscriptBox["x","1"]}],"+",RowBox[{"2"," ",SubscriptBox[
+"x","2"]}]}],")"}]}],"+",SubsuperscriptBox["y","0","2"],"-",RowBox[{"4"," ",SubscriptBox[
+"y","0"]," ",SubscriptBox["y","1"]}],"+",RowBox[{"4"," ",SubsuperscriptBox["y","1",
+"2"]}],"+",RowBox[{"2"," ",SubscriptBox["y","0"]," ",SubscriptBox["y","2"]}],"-",RowBox[
+{"4"," ",SubscriptBox["y","1"]," ",SubscriptBox["y","2"]}],"+",SubsuperscriptBox[
+"y","2","2"]}]]}]}],"]"}]," ",SuperscriptBox[RowBox[{"(",RowBox[{RowBox[{SubscriptBox[
+"x","2"]," ",RowBox[{"(",RowBox[{RowBox[{"-",SubscriptBox["y","0"]}],"+",SubscriptBox[
+"y","1"]}],")"}]}],"+",RowBox[{SubscriptBox["x","1"]," ",RowBox[{"(",RowBox[{SubscriptBox[
+"y","0"],"-",SubscriptBox["y","2"]}],")"}]}],"+",RowBox[{SubscriptBox["x","0"]," ",RowBox[
+{"(",RowBox[{RowBox[{"-",SubscriptBox["y","1"]}],"+",SubscriptBox["y","2"]}],")"}]}]}],")"}],
+"2"]}],SuperscriptBox[RowBox[{"(",RowBox[{SubsuperscriptBox["x","0","2"],"+",RowBox[
+{"4"," ",SubsuperscriptBox["x","1","2"]}],"-",RowBox[{"4"," ",SubscriptBox["x","1"]," ",SubscriptBox[
+"x","2"]}],"+",SubsuperscriptBox["x","2","2"],"+",RowBox[{SubscriptBox["x","0"]," ",RowBox[
+{"(",RowBox[{RowBox[{RowBox[{"-","4"}]," ",SubscriptBox["x","1"]}],"+",RowBox[{"2"," ",SubscriptBox[
+"x","2"]}]}],")"}]}],"+",SubsuperscriptBox["y","0","2"],"-",RowBox[{"4"," ",SubscriptBox[
+"y","0"]," ",SubscriptBox["y","1"]}],"+",RowBox[{"4"," ",SubsuperscriptBox["y","1",
+"2"]}],"+",RowBox[{"2"," ",SubscriptBox["y","0"]," ",SubscriptBox["y","2"]}],"-",RowBox[
+{"4"," ",SubscriptBox["y","1"]," ",SubscriptBox["y","2"]}],"+",SubsuperscriptBox[
+"y","2","2"]}],")"}],RowBox[{"3","/","2"}]]]}],InterpretationBox[DynamicModuleBox[
+{Set[Typeset`open,False]},TemplateBox[{"Expression",StyleBox[TagBox[TooltipBox["\"condition\"",
+TagBox[RowBox[{"\[LeftSkeleton]","1","\[RightSkeleton]"}],Function[Short[Slot[1],
+7]]]],Function[Annotation[Slot[1],Short[And[Or[NotElement[Times[Power[Plus[Power[
+Subscript[x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[
+x,2]],Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],
+Times[2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[
+y,1]],Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[
+-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[
+x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],
+Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[
+y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[y,
+2]],Times[-1,Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[Times[-1,Subscript[
+y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],Times[-1,Subscript[
+y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[y,2]]]],2]],
+Rational[1,2]]]]],Reals],Less[Re[Times[Power[Plus[Power[Subscript[x,0],2],Times[4,
+Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[
+x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],
+Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[
+y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[
+y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,Subscript[
+x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[
+x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[
+y,0],Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[
+y,2]],Times[-1,Subscript[y,1],Subscript[y,2]],Times[-1,Power[Times[-1,Power[Plus[
+Times[Subscript[x,2],Plus[Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[
+x,1],Plus[Subscript[y,0],Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[
+-1,Subscript[y,1]],Subscript[y,2]]]],2]],Rational[1,2]]]]]],0],Greater[Re[Times[Power[
+Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[
+x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[
+y,1]],Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[
+-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[
+x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],
+Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[
+y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[y,
+2]],Times[-1,Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[Times[-1,Subscript[
+y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],Times[-1,Subscript[
+y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[y,2]]]],2]],
+Rational[1,2]]]]]],1]],Or[NotElement[Times[Power[Plus[Power[Subscript[x,0],2],Times[
+4,Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[
+x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],
+Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[
+y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[
+y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,Subscript[
+x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[
+x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[
+y,0],Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[
+y,2]],Times[-1,Subscript[y,1],Subscript[y,2]],Power[Times[-1,Power[Plus[Times[Subscript[
+x,2],Plus[Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[
+y,0],Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],
+Subscript[y,2]]]],2]],Rational[1,2]]]],Reals],Less[Re[Times[Power[Plus[Power[Subscript[
+x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],
+Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[
+2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],
+Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,
+Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[
+x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],
+Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[
+y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[y,
+2]],Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[Times[-1,Subscript[y,0]],
+Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],Times[-1,Subscript[y,2]]]],
+Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[y,2]]]],2]],Rational[
+1,2]]]]],0],Greater[Re[Times[Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[
+x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[
+x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],
+2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[y,1],2]],Times[
+2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[
+y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],
+Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,
+1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,
+Subscript[y,1],Subscript[y,2]],Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[
+Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],
+Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[
+y,2]]]],2]],Rational[1,2]]]]],1]],Greater[Re[Plus[Power[Subscript[x,0],2],Times[-2,
+Subscript[x,0],Subscript[x,1]],Power[Subscript[x,1],2],Power[Subscript[y,0],2],Times[
+-2,Subscript[y,0],Subscript[y,1]],Power[Subscript[y,1],2]]],0],Less[Re[Plus[Power[
+Subscript[x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[
+x,1],2]],Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,
+2]],Power[Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[
+Subscript[y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[
+y,2]],Times[-1,Power[Plus[Power[Subscript[x,0],2],Times[-2,Subscript[x,0],Subscript[
+x,1]],Power[Subscript[x,1],2],Power[Subscript[y,0],2],Times[-2,Subscript[y,0],Subscript[
+y,1]],Power[Subscript[y,1],2]],Rational[1,2]],Power[Plus[Power[Subscript[x,0],2],
+Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[
+x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],
+Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[
+y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[
+y,2]],Power[Subscript[y,2],2]],Rational[1,2]]]]],0],Greater[Re[Plus[Power[Subscript[
+x,1],2],Times[-2,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Power[Subscript[
+y,1],2],Times[-2,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]]],0],Greater[
+Re[Plus[Times[-1,Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],
+Times[Subscript[x,0],Subscript[x,2]],Times[-3,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[x,2],2],Times[-1,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[
+y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-3,Subscript[y,1],Subscript[y,
+2]],Power[Subscript[y,2],2],Times[Power[Plus[Power[Subscript[x,0],2],Times[4,Power[
+Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],
+Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],Power[
+Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[
+y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[
+y,2]],Power[Subscript[y,2],2]],Rational[1,2]],Power[Plus[Power[Subscript[x,1],2],
+Times[-2,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Power[Subscript[y,
+1],2],Times[-2,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],Rational[1,
+2]]]]],0]],7],"Tooltip"]]],"IconizedCustomName",StripOnInput -> False],GridBox[{{RowBox[
+{TagBox["\"Head: \"","IconizedLabel"],"\[InvisibleSpace]",TagBox["And","IconizedItem"]}]},{RowBox[
+{TagBox["\"Byte count: \"","IconizedLabel"],"\[InvisibleSpace]",TagBox["53608","IconizedItem"]}]}},
+GridBoxAlignment -> {"Columns" -> {{Left}}},DefaultBaseStyle -> "Column",GridBoxItemSize -> {"Columns" -> {{Automatic}},"Rows" -> {{Automatic}}}],Dynamic[
+Typeset`open]},"IconizedObject"],ExpressionUUID -> "5e9faaf2-8c0d-47b1-92c2-a23f55b33a0a"],
+And[Or[NotElement[Times[Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[
+x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[
+x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],
+2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[y,1],2]],Times[
+2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[
+y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],
+Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,
+1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,
+Subscript[y,1],Subscript[y,2]],Times[-1,Power[Times[-1,Power[Plus[Times[Subscript[
+x,2],Plus[Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[
+y,0],Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],
+Subscript[y,2]]]],2]],Rational[1,2]]]]],Reals],Less[Re[Times[Power[Plus[Power[Subscript[
+x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],
+Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[
+2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],
+Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,
+Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[
+x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],
+Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[
+y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[y,
+2]],Times[-1,Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[Times[-1,Subscript[
+y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],Times[-1,Subscript[
+y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[y,2]]]],2]],
+Rational[1,2]]]]]],0],Greater[Re[Times[Power[Plus[Power[Subscript[x,0],2],Times[4,
+Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[
+x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],
+Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[
+y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[
+y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,Subscript[
+x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[
+x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[
+y,0],Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[
+y,2]],Times[-1,Subscript[y,1],Subscript[y,2]],Times[-1,Power[Times[-1,Power[Plus[
+Times[Subscript[x,2],Plus[Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[
+x,1],Plus[Subscript[y,0],Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[
+-1,Subscript[y,1]],Subscript[y,2]]]],2]],Rational[1,2]]]]]],1]],Or[NotElement[Times[
+Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[
+x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[
+y,1]],Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[
+-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[
+x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],
+Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[
+y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[y,
+2]],Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[Times[-1,Subscript[y,0]],
+Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],Times[-1,Subscript[y,2]]]],
+Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[y,2]]]],2]],Rational[
+1,2]]]],Reals],Less[Re[Times[Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[
+x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[
+x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],
+2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[y,1],2]],Times[
+2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[
+y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],
+Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,
+1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,
+Subscript[y,1],Subscript[y,2]],Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[
+Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],
+Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[
+y,2]]]],2]],Rational[1,2]]]]],0],Greater[Re[Times[Power[Plus[Power[Subscript[x,0],
+2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[
+x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[
+Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],
+Subscript[y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,
+Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,
+0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[Subscript[y,0],2],
+Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[
+y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[y,2]],Power[Times[-1,Power[
+Plus[Times[Subscript[x,2],Plus[Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[
+x,1],Plus[Subscript[y,0],Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[
+-1,Subscript[y,1]],Subscript[y,2]]]],2]],Rational[1,2]]]]],1]],Greater[Re[Plus[Power[
+Subscript[x,0],2],Times[-2,Subscript[x,0],Subscript[x,1]],Power[Subscript[x,1],2],
+Power[Subscript[y,0],2],Times[-2,Subscript[y,0],Subscript[y,1]],Power[Subscript[y,
+1],2]]],0],Less[Re[Plus[Power[Subscript[x,0],2],Times[-3,Subscript[x,0],Subscript[
+x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[x,2]],Times[
+-1,Subscript[x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[y,0],
+Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[y,
+2]],Times[-1,Subscript[y,1],Subscript[y,2]],Times[-1,Power[Plus[Power[Subscript[x,
+0],2],Times[-2,Subscript[x,0],Subscript[x,1]],Power[Subscript[x,1],2],Power[Subscript[
+y,0],2],Times[-2,Subscript[y,0],Subscript[y,1]],Power[Subscript[y,1],2]],Rational[
+1,2]],Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,
+Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[
+Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[
+-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[
+y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],
+2]],Rational[1,2]]]]],0],Greater[Re[Plus[Power[Subscript[x,1],2],Times[-2,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[x,2],2],Power[Subscript[y,1],2],Times[-2,Subscript[
+y,1],Subscript[y,2]],Power[Subscript[y,2],2]]],0],Greater[Re[Plus[Times[-1,Subscript[
+x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[
+x,2]],Times[-3,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[-1,Subscript[
+y,0],Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[
+y,2]],Times[-3,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2],Times[Power[
+Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[
+x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[
+y,1]],Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[
+-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],Rational[1,2]],Power[Plus[
+Power[Subscript[x,1],2],Times[-2,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,
+2],2],Power[Subscript[y,1],2],Times[-2,Subscript[y,1],Subscript[y,2]],Power[Subscript[
+y,2],2]],Rational[1,2]]]]],0]],SelectWithContents -> True,Selectable -> False]},"ConditionalExpression"],
+StandardForm],"Output",CellLabel -> "Out[122]= ",ExpressionUUID -> "54b2fc7a-d053-476c-a3de-c1569a538d25"]},
+Open],ExpressionUUID -> "4ad0d343-cb19-4c54-b122-dabe42e90f0e"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{RowBox[{"r","//","Simplify"}],"//","Factor"}]],"Input",CellLabel -> "In[125]:= ",
+ExpressionUUID -> "76b806f3-a213-40cb-9964-688225b42e50"],Cell[
+BoxData[InterpretationBox[
+TagBox[FrameBox[GridBox[{{ItemBox[TagBox[FrameBox[RowBox[{FractionBox[RowBox[{RowBox[
+{RowBox[{"-",RowBox[{"Log","[",RowBox[{RowBox[{"-",SubsuperscriptBox["x","0","2"]}],"+",TemplateBox[
+{"13"},"OutputSizeLimit`Skeleton"],"+",RowBox[{SubscriptBox["y","1"]," ",SubscriptBox[
+"y","2"]}],"+",RowBox[{SqrtBox[RowBox[{SubsuperscriptBox["x","0","2"],"-",RowBox[
+{"2"," ",SubscriptBox["x","0"]," ",SubscriptBox["x","1"]}],"+",SubsuperscriptBox[
+"x","1","2"],"+",SuperscriptBox[RowBox[{"(",RowBox[{SubscriptBox["y","0"],"-",SubscriptBox[
+"y","1"]}],")"}],"2"]}]]," ",SqrtBox[RowBox[{SubsuperscriptBox["x","0","2"],"+",RowBox[
+{"4"," ",SubsuperscriptBox["x","1","2"]}],"-",RowBox[{"4"," ",SubscriptBox["x","1"]," ",SubscriptBox[
+"x","2"]}],"+",TemplateBox[{"9"},"OutputSizeLimit`Skeleton"],"+",SubsuperscriptBox[
+"y","2","2"]}]]}]}],"]"}]}]," ",SubsuperscriptBox["x","1","2"]," ",SubsuperscriptBox[
+"y","0","2"]}],"+",TemplateBox[{"89"},"OutputSizeLimit`Skeleton"]}],SuperscriptBox[
+RowBox[{"(",RowBox[{SubsuperscriptBox["x","0","2"],"-",RowBox[{"4"," ",SubscriptBox[
+"x","0"]," ",SubscriptBox["x","1"]}],"+",RowBox[{"4"," ",SubsuperscriptBox["x","1",
+"2"]}],"+",TemplateBox[{"8"},"OutputSizeLimit`Skeleton"],"+",RowBox[{"2"," ",SubscriptBox[
+"y","0"]," ",SubscriptBox["y","2"]}],"-",RowBox[{"4"," ",SubscriptBox["y","1"]," ",SubscriptBox[
+"y","2"]}],"+",SubsuperscriptBox["y","2","2"]}],")"}],RowBox[{"3","/","2"}]]],StyleBox[
+"\" if \"",ShowStringCharacters -> False,FontFamily -> "Roboto-Medium",FontOpacity -> 0.44],InterpretationBox[
+DynamicModuleBox[{Set[Typeset`open,False]},TemplateBox[{"Expression",StyleBox[TagBox[
+TooltipBox["\"condition\"",TagBox[RowBox[{"\[LeftSkeleton]","1","\[RightSkeleton]"}],
+Function[Short[Slot[1],7]]]],Function[Annotation[Slot[1],Short[And[Or[NotElement[
+Times[Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,
+Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[
+Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[
+-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[
+y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],
+2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],Times[
+2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,
+1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,
+Subscript[y,1],Subscript[y,2]],Times[-1,Power[Times[-1,Power[Plus[Times[Subscript[
+x,2],Plus[Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[
+y,0],Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],
+Subscript[y,2]]]],2]],Rational[1,2]]]]],Reals],Less[Re[Times[Power[Plus[Power[Subscript[
+x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],
+Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[
+2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],
+Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,
+Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[
+x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],
+Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[
+y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[y,
+2]],Times[-1,Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[Times[-1,Subscript[
+y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],Times[-1,Subscript[
+y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[y,2]]]],2]],
+Rational[1,2]]]]]],0],Greater[Re[Times[Power[Plus[Power[Subscript[x,0],2],Times[4,
+Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[
+x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],
+Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[
+y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[
+y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,Subscript[
+x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[
+x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[
+y,0],Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[
+y,2]],Times[-1,Subscript[y,1],Subscript[y,2]],Times[-1,Power[Times[-1,Power[Plus[
+Times[Subscript[x,2],Plus[Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[
+x,1],Plus[Subscript[y,0],Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[
+-1,Subscript[y,1]],Subscript[y,2]]]],2]],Rational[1,2]]]]]],1]],Or[NotElement[Times[
+Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[
+x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[
+y,1]],Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[
+-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[
+x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],
+Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[
+y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[y,
+2]],Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[Times[-1,Subscript[y,0]],
+Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],Times[-1,Subscript[y,2]]]],
+Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[y,2]]]],2]],Rational[
+1,2]]]],Reals],Less[Re[Times[Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[
+x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[
+x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],
+2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[y,1],2]],Times[
+2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[
+y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],
+Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,
+1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,
+Subscript[y,1],Subscript[y,2]],Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[
+Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],
+Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[
+y,2]]]],2]],Rational[1,2]]]]],0],Greater[Re[Times[Power[Plus[Power[Subscript[x,0],
+2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[
+x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[
+Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],
+Subscript[y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,
+Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,
+0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[Subscript[y,0],2],
+Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[
+y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[y,2]],Power[Times[-1,Power[
+Plus[Times[Subscript[x,2],Plus[Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[
+x,1],Plus[Subscript[y,0],Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[
+-1,Subscript[y,1]],Subscript[y,2]]]],2]],Rational[1,2]]]]],1]],Greater[Re[Plus[Power[
+Subscript[x,0],2],Times[-2,Subscript[x,0],Subscript[x,1]],Power[Subscript[x,1],2],
+Power[Subscript[y,0],2],Times[-2,Subscript[y,0],Subscript[y,1]],Power[Subscript[y,
+1],2]]],0],Less[Re[Plus[Power[Subscript[x,0],2],Times[-3,Subscript[x,0],Subscript[
+x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[x,2]],Times[
+-1,Subscript[x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[y,0],
+Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[y,
+2]],Times[-1,Subscript[y,1],Subscript[y,2]],Times[-1,Power[Plus[Power[Subscript[x,
+0],2],Times[-2,Subscript[x,0],Subscript[x,1]],Power[Subscript[x,1],2],Power[Subscript[
+y,0],2],Times[-2,Subscript[y,0],Subscript[y,1]],Power[Subscript[y,1],2]],Rational[
+1,2]],Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,
+Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[
+Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[
+-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[
+y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],
+2]],Rational[1,2]]]]],0],Greater[Re[Plus[Power[Subscript[x,1],2],Times[-2,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[x,2],2],Power[Subscript[y,1],2],Times[-2,Subscript[
+y,1],Subscript[y,2]],Power[Subscript[y,2],2]]],0],Greater[Re[Plus[Times[-1,Subscript[
+x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[
+x,2]],Times[-3,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[-1,Subscript[
+y,0],Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[
+y,2]],Times[-3,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2],Times[Power[
+Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[
+x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[
+y,1]],Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[
+-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],Rational[1,2]],Power[Plus[
+Power[Subscript[x,1],2],Times[-2,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,
+2],2],Power[Subscript[y,1],2],Times[-2,Subscript[y,1],Subscript[y,2]],Power[Subscript[
+y,2],2]],Rational[1,2]]]]],0]],7],"Tooltip"]]],"IconizedCustomName",StripOnInput -> False],GridBox[
+{{RowBox[{TagBox["\"Head: \"","IconizedLabel"],"\[InvisibleSpace]",TagBox["And","IconizedItem"]}]},{RowBox[
+{TagBox["\"Byte count: \"","IconizedLabel"],"\[InvisibleSpace]",TagBox["53608","IconizedItem"]}]}},
+GridBoxAlignment -> {"Columns" -> {{Left}}},DefaultBaseStyle -> "Column",GridBoxItemSize -> {"Columns" -> {{Automatic}},"Rows" -> {{Automatic}}}],Dynamic[
+Typeset`open]},"IconizedObject"],ExpressionUUID -> "8cca664d-bbd6-4354-aef8-35953e339c83"],
+And[Or[NotElement[Times[Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[
+x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[
+x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],
+2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[y,1],2]],Times[
+2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[
+y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],
+Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,
+1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,
+Subscript[y,1],Subscript[y,2]],Times[-1,Power[Times[-1,Power[Plus[Times[Subscript[
+x,2],Plus[Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[
+y,0],Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],
+Subscript[y,2]]]],2]],Rational[1,2]]]]],Reals],Less[Re[Times[Power[Plus[Power[Subscript[
+x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],
+Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[
+2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],
+Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,
+Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[
+x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],
+Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[
+y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[y,
+2]],Times[-1,Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[Times[-1,Subscript[
+y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],Times[-1,Subscript[
+y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[y,2]]]],2]],
+Rational[1,2]]]]]],0],Greater[Re[Times[Power[Plus[Power[Subscript[x,0],2],Times[4,
+Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[
+x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],
+Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[
+y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[
+y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,Subscript[
+x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[
+x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[
+y,0],Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[
+y,2]],Times[-1,Subscript[y,1],Subscript[y,2]],Times[-1,Power[Times[-1,Power[Plus[
+Times[Subscript[x,2],Plus[Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[
+x,1],Plus[Subscript[y,0],Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[
+-1,Subscript[y,1]],Subscript[y,2]]]],2]],Rational[1,2]]]]]],1]],Or[NotElement[Times[
+Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[
+x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[
+y,1]],Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[
+-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[
+x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],
+Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[
+y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[y,
+2]],Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[Times[-1,Subscript[y,0]],
+Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],Times[-1,Subscript[y,2]]]],
+Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[y,2]]]],2]],Rational[
+1,2]]]],Reals],Less[Re[Times[Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[
+x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[
+x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],
+2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[y,1],2]],Times[
+2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[
+y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,Subscript[x,0],Subscript[x,1]],
+Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[x,2]],Times[-1,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[y,0],Subscript[y,
+1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[y,2]],Times[-1,
+Subscript[y,1],Subscript[y,2]],Power[Times[-1,Power[Plus[Times[Subscript[x,2],Plus[
+Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[x,1],Plus[Subscript[y,0],
+Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[-1,Subscript[y,1]],Subscript[
+y,2]]]],2]],Rational[1,2]]]]],0],Greater[Re[Times[Power[Plus[Power[Subscript[x,0],
+2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[x,1],Subscript[x,2]],Power[
+Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[x,1]],Times[2,Subscript[
+x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[
+Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[-4,Subscript[y,1],
+Subscript[y,2]],Power[Subscript[y,2],2]],-1],Plus[Power[Subscript[x,0],2],Times[-3,
+Subscript[x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,
+0],Subscript[x,2]],Times[-1,Subscript[x,1],Subscript[x,2]],Power[Subscript[y,0],2],
+Times[-3,Subscript[y,0],Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[
+y,0],Subscript[y,2]],Times[-1,Subscript[y,1],Subscript[y,2]],Power[Times[-1,Power[
+Plus[Times[Subscript[x,2],Plus[Times[-1,Subscript[y,0]],Subscript[y,1]]],Times[Subscript[
+x,1],Plus[Subscript[y,0],Times[-1,Subscript[y,2]]]],Times[Subscript[x,0],Plus[Times[
+-1,Subscript[y,1]],Subscript[y,2]]]],2]],Rational[1,2]]]]],1]],Greater[Re[Plus[Power[
+Subscript[x,0],2],Times[-2,Subscript[x,0],Subscript[x,1]],Power[Subscript[x,1],2],
+Power[Subscript[y,0],2],Times[-2,Subscript[y,0],Subscript[y,1]],Power[Subscript[y,
+1],2]]],0],Less[Re[Plus[Power[Subscript[x,0],2],Times[-3,Subscript[x,0],Subscript[
+x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[x,2]],Times[
+-1,Subscript[x,1],Subscript[x,2]],Power[Subscript[y,0],2],Times[-3,Subscript[y,0],
+Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[y,
+2]],Times[-1,Subscript[y,1],Subscript[y,2]],Times[-1,Power[Plus[Power[Subscript[x,
+0],2],Times[-2,Subscript[x,0],Subscript[x,1]],Power[Subscript[x,1],2],Power[Subscript[
+y,0],2],Times[-2,Subscript[y,0],Subscript[y,1]],Power[Subscript[y,1],2]],Rational[
+1,2]],Power[Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,
+Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[
+Times[-4,Subscript[x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[
+-4,Subscript[y,0],Subscript[y,1]],Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[
+y,0],Subscript[y,2]],Times[-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],
+2]],Rational[1,2]]]]],0],Greater[Re[Plus[Power[Subscript[x,1],2],Times[-2,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[x,2],2],Power[Subscript[y,1],2],Times[-2,Subscript[
+y,1],Subscript[y,2]],Power[Subscript[y,2],2]]],0],Greater[Re[Plus[Times[-1,Subscript[
+x,0],Subscript[x,1]],Times[2,Power[Subscript[x,1],2]],Times[Subscript[x,0],Subscript[
+x,2]],Times[-3,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[-1,Subscript[
+y,0],Subscript[y,1]],Times[2,Power[Subscript[y,1],2]],Times[Subscript[y,0],Subscript[
+y,2]],Times[-3,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2],Times[Power[
+Plus[Power[Subscript[x,0],2],Times[4,Power[Subscript[x,1],2]],Times[-4,Subscript[
+x,1],Subscript[x,2]],Power[Subscript[x,2],2],Times[Subscript[x,0],Plus[Times[-4,Subscript[
+x,1]],Times[2,Subscript[x,2]]]],Power[Subscript[y,0],2],Times[-4,Subscript[y,0],Subscript[
+y,1]],Times[4,Power[Subscript[y,1],2]],Times[2,Subscript[y,0],Subscript[y,2]],Times[
+-4,Subscript[y,1],Subscript[y,2]],Power[Subscript[y,2],2]],Rational[1,2]],Power[Plus[
+Power[Subscript[x,1],2],Times[-2,Subscript[x,1],Subscript[x,2]],Power[Subscript[x,
+2],2],Power[Subscript[y,1],2],Times[-2,Subscript[y,1],Subscript[y,2]],Power[Subscript[
+y,2],2]],Rational[1,2]]]]],0]],SelectWithContents -> True,Selectable -> False]}],
+FrameStyle -> Directive[Opacity[0.2],AbsoluteThickness[0.5]],RoundingRadius -> 4,
+BaselinePosition -> Baseline],Function[Short[Slot[1],5]]],BaseStyle -> {Deployed -> False},
+StripOnInput -> False]},{GridBox[{{PaneBox[TagBox[TooltipBox[StyleBox[StyleBox[DynamicBox[
+ToBoxes[FEPrivate`FrontEndResource["FEStrings","sizeBriefExplanation"],StandardForm]],
+DynamicUpdating -> True,LineIndent -> 0,LinebreakAdjustments -> {1.0,100,0,0,0},LineSpacing -> {1,2},
+StripOnInput -> False],"OSLText",StripOnInput -> False],StyleBox[DynamicBox[ToBoxes[
+FEPrivate`FrontEndResource["FEStrings","sizeExplanation"],StandardForm]],DynamicUpdating -> True,
+LineIndent -> 0,LinebreakAdjustments -> {1.0,100,0,0,0},LineSpacing -> {1,2},StripOnInput -> False]],
+Function[Annotation[Slot[1],Style[Dynamic[FEPrivate`FrontEndResource["FEStrings",
+"sizeExplanation"]],DynamicUpdating -> True,LineIndent -> 0,LinebreakAdjustments -> {1.0,100,0,0,0},
+LineSpacing -> {1,2}],"Tooltip"]]],ImageSize -> {Automatic,{25,Full}},Alignment -> Center,
+BaselinePosition -> Baseline],ButtonBox[PaneSelectorBox[{False -> StyleBox[StyleBox[
+DynamicBox[ToBoxes[FEPrivate`FrontEndResource["FEStrings","sizeShowLess"],StandardForm]],
+DynamicUpdating -> True,LineIndent -> 0,LinebreakAdjustments -> {1.0,100,0,0,0},LineSpacing -> {1,2},
+StripOnInput -> False],"OSLControl",StripOnInput -> False],True -> StyleBox[StyleBox[
+DynamicBox[ToBoxes[FEPrivate`FrontEndResource["FEStrings","sizeShowLess"],StandardForm]],
+DynamicUpdating -> True,LineIndent -> 0,LinebreakAdjustments -> {1.0,100,0,0,0},LineSpacing -> {1,2},
+StripOnInput -> False],"OSLControlActive",StripOnInput -> False]},Dynamic[CurrentValue[
+"MouseOver"]],ImageSize -> {Automatic,{25,Full}},Alignment -> Center,ImageSize -> Automatic,
+FrameMargins -> 0],RuleDelayed[ButtonFunction,OutputSizeLimit`ButtonFunction[OutputSizeLimit`Defer,
+125,27842837612183744630,Times[5,Power[2,-1]]]],Appearance -> None,Enabled -> True,
+BaselinePosition -> Baseline,Method -> "Queued",Evaluator -> Automatic],ButtonBox[
+PaneSelectorBox[{False -> StyleBox[StyleBox[DynamicBox[ToBoxes[FEPrivate`FrontEndResource[
+"FEStrings","sizeShowMore"],StandardForm]],DynamicUpdating -> True,LineIndent -> 0,
+LinebreakAdjustments -> {1.0,100,0,0,0},LineSpacing -> {1,2},StripOnInput -> False],
+"OSLControl",StripOnInput -> False],True -> StyleBox[StyleBox[DynamicBox[ToBoxes[
+FEPrivate`FrontEndResource["FEStrings","sizeShowMore"],StandardForm]],DynamicUpdating -> True,
+LineIndent -> 0,LinebreakAdjustments -> {1.0,100,0,0,0},LineSpacing -> {1,2},StripOnInput -> False],
+"OSLControlActive",StripOnInput -> False]},Dynamic[CurrentValue["MouseOver"]],ImageSize -> {Automatic,{25,Full}},
+Alignment -> Center,ImageSize -> Automatic,FrameMargins -> 0],RuleDelayed[ButtonFunction,
+OutputSizeLimit`ButtonFunction[OutputSizeLimit`Defer,125,27842837612183744630,Times[
+5,2]]],Appearance -> None,Enabled -> True,BaselinePosition -> Baseline,Method -> "Queued",
+Evaluator -> Automatic],ButtonBox[PaneSelectorBox[{False -> StyleBox[StyleBox[DynamicBox[
+ToBoxes[FEPrivate`FrontEndResource["FEStrings","sizeShowAll"],StandardForm]],DynamicUpdating -> True,
+LineIndent -> 0,LinebreakAdjustments -> {1.0,100,0,0,0},LineSpacing -> {1,2},StripOnInput -> False],
+"OSLControl",StripOnInput -> False],True -> StyleBox[StyleBox[DynamicBox[ToBoxes[
+FEPrivate`FrontEndResource["FEStrings","sizeShowAll"],StandardForm]],DynamicUpdating -> True,
+LineIndent -> 0,LinebreakAdjustments -> {1.0,100,0,0,0},LineSpacing -> {1,2},StripOnInput -> False],
+"OSLControlActive",StripOnInput -> False]},Dynamic[CurrentValue["MouseOver"]],ImageSize -> {Automatic,{25,Full}},
+Alignment -> Center,ImageSize -> Automatic,FrameMargins -> 0],RuleDelayed[ButtonFunction,
+OutputSizeLimit`ButtonFunction[OutputSizeLimit`Defer,125,27842837612183744630,Infinity]],
+Appearance -> None,Enabled -> True,BaselinePosition -> Baseline,Method -> "Queued",
+Evaluator -> Automatic],ButtonBox[PaneSelectorBox[{False -> StyleBox[StyleBox[DynamicBox[
+ToBoxes[FEPrivate`FrontEndResource["FEStrings","sizeChangeLimit"],StandardForm]],
+DynamicUpdating -> True,LineIndent -> 0,LinebreakAdjustments -> {1.0,100,0,0,0},LineSpacing -> {1,2},
+StripOnInput -> False],"OSLControl",StripOnInput -> False],True -> StyleBox[StyleBox[
+DynamicBox[ToBoxes[FEPrivate`FrontEndResource["FEStrings","sizeChangeLimit"],StandardForm]],
+DynamicUpdating -> True,LineIndent -> 0,LinebreakAdjustments -> {1.0,100,0,0,0},LineSpacing -> {1,2},
+StripOnInput -> False],"OSLControlActive",StripOnInput -> False]},Dynamic[CurrentValue[
+"MouseOver"]],ImageSize -> {Automatic,{25,Full}},Alignment -> Center,ImageSize -> Automatic,
+FrameMargins -> 0],RuleDelayed[ButtonFunction,FrontEndExecute[{FrontEnd`SetOptions[
+FrontEnd`$FrontEnd,FrontEnd`PreferencesSettings -> {"Page" -> "Advanced"}],FrontEnd`FrontEndToken[
+"PreferencesDialog"]}]],Appearance -> None,BaselinePosition -> Baseline,Evaluator -> None,
+Method -> "Preemptive"]}},AutoDelete -> False,GridBoxDividers -> {"Columns" -> {False,{True}}},
+GridBoxItemSize -> {"Columns" -> {{Automatic}},"Rows" -> {{Automatic}}},GridBoxSpacings -> {"Columns" -> {{2}}},
+FrameStyle -> GrayLevel[0.85]]}},GridBoxAlignment -> {"Columns" -> {{Left}}},DefaultBaseStyle -> "Column",
+GridBoxItemSize -> {"Columns" -> {{Automatic}},"Rows" -> {{Automatic}}},ColumnWidths -> Automatic,
+ColumnAlignments -> Left,RowLines -> False,RowSpacings -> {3,1}],BaseStyle -> "OutputSizeLimit",
+FrameMargins -> {{12,12},{0,15}},FrameStyle -> GrayLevel[0.85],RoundingRadius -> 5,
+StripOnInput -> False],Deploy,DefaultBaseStyle -> "Deploy"],If[SameQ[27842837612183744630,
+$SessionID],Out[125],CompoundExpression[Message[MessageName[Syntax,"noinfoker"]],
+Missing["NotAvailable"],Null]]],StandardForm],"Output",CellLabel -> "Out[125]= ",
+ExpressionUUID -> "a5dea088-0b85-40df-9366-123462186822"]},Open],ExpressionUUID -> "a0d363d1-1c58-4333-a220-5718fd1630a6"]},
+StyleDefinitions -> "Default.nb",FrontEndVersion -> "12.3 for Wolfram Cloud 1.58.2 (April 29, 2021)"]
