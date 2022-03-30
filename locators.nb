@@ -1,0 +1,1695 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     79762,       1687]
+NotebookOptionsPosition[     78401,       1655]
+NotebookOutlinePosition[     78895,       1673]
+CellTagsIndexPosition[     78852,       1670]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\"\<`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.857604859779171*^9, 3.857604865330544*^9}},
+ CellLabel->
+  "In[182]:=",ExpressionUUID->"2a9b8fa9-ac5b-452b-b723-908426c771c3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"https", ":"}], "//", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"www", ".", "zhihu", ".", "com"}], "/", "question"}], "/", 
+       "511247956"}], "/", "answer"}], "/", "2402468782"}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"fun", ",", "eqn", ",", "sol", ",", 
+        RowBox[{"kk", "=", 
+         RowBox[{"{", 
+          RowBox[{"k1", ",", "k2", ",", "k3", ",", "k4"}], "}"}]}]}], "}"}], 
+      ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"fun", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x1_", ",", "y1_"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x2_", ",", "y2_"}], "}"}]}], "}"}], "]"}], "=", 
+        RowBox[{"Discriminant", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"A", " ", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"x", "-", "x0"}], ")"}], "^", "2"}]}], "+", 
+            RowBox[{"2", " ", "B", " ", 
+             RowBox[{"(", 
+              RowBox[{"x", "-", "x0"}], ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{"y", "-", "y0"}], ")"}]}], "+", 
+            RowBox[{"C", " ", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"y", "-", "y0"}], ")"}], "^", "2"}]}], "-", "1"}], "/.",
+            " ", 
+           RowBox[{"y", "\[Rule]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"x", "-", "x1"}], ")"}], "/", 
+               RowBox[{"(", 
+                RowBox[{"x2", "-", "x1"}], ")"}]}], " ", 
+              RowBox[{"(", 
+               RowBox[{"y2", "-", "y1"}], ")"}]}], "+", "y1"}]}]}], ",", 
+          "x"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"eqn", "=", 
+        RowBox[{"D", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Pi", "^", "2"}], "/", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"A", " ", "C"}], "-", 
+              RowBox[{"B", "^", "2"}]}], ")"}]}], "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"fun", "/@", 
+              RowBox[{"Partition", "[", 
+               RowBox[{
+                RowBox[{"Rationalize", "[", 
+                 RowBox[{"pts", ",", "0"}], "]"}], ",", "2", ",", "1", ",", 
+                "1"}], "]"}]}], ")"}], ".", "kk"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"Join", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"A", ",", "B", ",", "C", ",", "x0", ",", "y0"}], "}"}], 
+             ",", "kk"}], "]"}], "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"sol", "=", 
+        RowBox[{"NSolve", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"GroebnerBasis", "[", 
+             RowBox[{"eqn", ",", 
+              RowBox[{"{", "}"}], ",", "kk"}], "]"}], "\[Equal]", "0"}], "&&", 
+           RowBox[{
+            RowBox[{"B", "^", "2"}], "<", 
+            RowBox[{"A", " ", "C"}]}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"A", ",", "B", ",", "C", ",", "x0", ",", "y0"}], "}"}], 
+          ",", 
+          RowBox[{"WorkingPrecision", "\[Rule]", "50"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"EdgeForm", "[", "Black", "]"}], ",", 
+             RowBox[{"FaceForm", "[", "]"}], ",", 
+             RowBox[{"Polygon", "[", "pts", "]"}]}], "}"}], ",", 
+           RowBox[{"EdgeForm", "[", "Blue", "]"}], ",", "LightBlue", ",", 
+           RowBox[{
+            RowBox[{"Rotate", "[", 
+             RowBox[{
+              RowBox[{"Disk", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"x0", ",", "y0"}], "}"}], ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Sqrt", "[", 
+                   RowBox[{"2", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"A", "+", "C", "+", 
+                    RowBox[{"#", " ", 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{
+                    RowBox[{"4", " ", 
+                    RowBox[{"B", "^", "2"}]}], "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"A", "-", "C"}], ")"}], "^", "2"}]}], "]"}]}]}], 
+                    ")"}]}], "]"}], "&"}], "/@", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"-", "1"}], ",", "1"}], "}"}]}]}], "]"}], ",", 
+              RowBox[{
+               RowBox[{"-", 
+                RowBox[{"ArcTan", "[", 
+                 RowBox[{
+                  RowBox[{"C", "-", "A"}], ",", 
+                  RowBox[{"2", " ", "B"}]}], "]"}]}], "/", "2"}]}], "]"}], "/.",
+             " ", "sol"}]}], "}"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "0.2"}], ",", "1.2"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "0.2"}], ",", "1.2"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"pts", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0.3", ",", "0.7"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0.9", ",", "0.4"}], "}"}]}], "}"}]}], "}"}], ",", 
+      "Locator"}], "}"}], ",", 
+    RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.856993575845653*^9, 3.856993575850272*^9}, {
+  3.857081340993074*^9, 3.857081358444915*^9}, {3.8570868988081617`*^9, 
+  3.857086900342589*^9}},
+ CellLabel->
+  "In[183]:=",ExpressionUUID->"4f1a49c4-4b68-4840-b733-086897d39b94"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`pts$$ = {{0.3, 0.7}, {0, 0}, {1, 0}, {0.9, 
+     0.4}}, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`pts$$], {{0.3, 0.7}, {0, 0}, {1, 0}, {0.9, 0.4}}}, 
+      Automatic}}, Typeset`size$$ = {1152., {571., 581.}}, Typeset`update$$ = 
+    0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`pts$$ = {{0.3, 0.7}, {0, 0}, {1, 0}, {0.9, 
+          0.4}}}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`fun$, $CellContext`eqn$, $CellContext`sol$, \
+$CellContext`kk$ = {$CellContext`k1, $CellContext`k2, $CellContext`k3, \
+$CellContext`k4}}, $CellContext`fun$[{{
+             Pattern[$CellContext`x1, 
+              Blank[]], 
+             Pattern[$CellContext`y1, 
+              Blank[]]}, {
+             Pattern[$CellContext`x2, 
+              Blank[]], 
+             Pattern[$CellContext`y2, 
+              Blank[]]}}] = Discriminant[
+           
+           ReplaceAll[$CellContext`A ($CellContext`x - $CellContext`x0)^2 + 
+            2 $CellContext`B ($CellContext`x - $CellContext`x0) \
+($CellContext`y - $CellContext`y0) + C ($CellContext`y - $CellContext`y0)^2 - 
+            1, $CellContext`y -> (($CellContext`x - \
+$CellContext`x1)/($CellContext`x2 - $CellContext`x1)) ($CellContext`y2 - \
+$CellContext`y1) + $CellContext`y1], $CellContext`x]; $CellContext`eqn$ = 
+         D[Pi^2/($CellContext`A C - $CellContext`B^2) + Dot[
+             Map[$CellContext`fun$, 
+              Partition[
+               Rationalize[$CellContext`pts$$, 0], 2, 1, 
+               1]], $CellContext`kk$], {
+            
+            Join[{$CellContext`A, $CellContext`B, 
+              C, $CellContext`x0, $CellContext`y0}, $CellContext`kk$]}]; \
+$CellContext`sol$ = NSolve[
+           And[
+           GroebnerBasis[$CellContext`eqn$, {}, $CellContext`kk$] == 
+            0, $CellContext`B^2 < $CellContext`A 
+             C], {$CellContext`A, $CellContext`B, 
+            C, $CellContext`x0, $CellContext`y0}, WorkingPrecision -> 50]; 
+        Graphics[{{
+            EdgeForm[Black], 
+            FaceForm[], 
+            Polygon[$CellContext`pts$$]}, 
+           EdgeForm[Blue], LightBlue, 
+           ReplaceAll[
+            Rotate[
+             Disk[{$CellContext`x0, $CellContext`y0}, 
+              Map[
+              Sqrt[2/($CellContext`A + 
+                C + # Sqrt[
+                  4 $CellContext`B^2 + ($CellContext`A - C)^2])]& , {-1, 
+               1}]], (-ArcTan[C - $CellContext`A, 2 $CellContext`B])/
+             2], $CellContext`sol$]}, PlotRange -> {{-0.2, 1.2}, {-0.2, 1.2}},
+           ImageSize -> Large]], 
+      "Specifications" :> {{{$CellContext`pts$$, {{0.3, 0.7}, {0, 0}, {1, 
+           0}, {0.9, 0.4}}}, Automatic, ControlType -> Locator}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1250., {633., 645.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.8569935845390873`*^9, 3.857001270194659*^9, {3.8570813611590157`*^9, 
+   3.8570813701667624`*^9}, 3.857085184322036*^9, 3.857086908194669*^9, {
+   3.857604628821012*^9, 3.8576046580421343`*^9}, 3.8576048694309683`*^9, 
+   3.8576050487446938`*^9},
+ CellLabel->
+  "Out[183]=",ExpressionUUID->"9e26a975-e305-4445-be6a-16c39194d809"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"pointsDistance", "[", 
+    RowBox[{"p1_", ",", "p2_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "d", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"d", "=", 
+       RowBox[{"Length", "[", "p1", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Sqrt", "@", 
+       RowBox[{"Total", "@", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+             "p1", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], 
+             "-", 
+             RowBox[{
+             "p2", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}], 
+            ")"}], "2"], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", "d"}], "}"}]}], "]"}]}]}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pointsImplicitLine", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1_", ",", "y1_"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x2_", ",", "y2_"}], "}"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "k", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Solve", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"a", " ", "x"}], "+", 
+             RowBox[{"b", " ", "y"}], "+", "c"}], "\[Equal]", "0"}], "/.", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"x", "\[Rule]", "x1"}], ",", 
+             RowBox[{"y", "\[Rule]", "y1"}]}], "}"}]}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"a", " ", "x"}], "+", 
+             RowBox[{"b", " ", "y"}], "+", "c"}], "\[Equal]", "0"}], "/.", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"x", "\[Rule]", "x2"}], ",", 
+             RowBox[{"y", "\[Rule]", "y2"}]}], "}"}]}], ",", 
+          RowBox[{"a", "\[Equal]", "1"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"a", ",", "b", ",", "c"}], "}"}]}], "]"}], "//", 
+      "Flatten"}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"pointToLineDistance", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x_", ",", "y_"}], "}"}], ",", "implicitLine_"}], "]"}], ":=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"RealAbs", "[", 
+      RowBox[{
+       RowBox[{"a", " ", "x"}], "+", 
+       RowBox[{"b", " ", "y"}], "+", "c"}], "]"}], 
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox["a", "2"], "+", 
+       SuperscriptBox["b", "2"]}]]], "/.", "implicitLine"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "a", ",", "b", ",", "c", ",", "x1", ",", "x2", ",", "x3", ",", "y1", 
+       ",", "y2", ",", "y3", ",", "incenter", ",", "radius"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x1", ",", "y1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x2", ",", "y2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x3", ",", "y3"}], "}"}]}], "}"}], "=", "ps"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a", ",", "b", ",", "c"}], "}"}], "=", 
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"pointsDistance", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x2", ",", "y2"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x3", ",", "y3"}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"pointsDistance", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x3", ",", "y3"}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"pointsDistance", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x2", ",", "y2"}], "}"}]}], "]"}]}], 
+        "\[IndentingNewLine]", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"incenter", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox[
+          RowBox[{
+           RowBox[{"a", " ", "x1"}], "+", 
+           RowBox[{"b", " ", "x2"}], "+", 
+           RowBox[{"c", " ", "x3"}]}], 
+          RowBox[{"a", "+", "b", "+", "c"}]], ",", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"a", " ", "y1"}], "+", 
+           RowBox[{"b", " ", "y2"}], "+", 
+           RowBox[{"c", " ", "y3"}]}], 
+          RowBox[{"a", "+", "b", "+", "c"}]]}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"radius", "=", 
+       RowBox[{"pointToLineDistance", "[", 
+        RowBox[{"incenter", ",", 
+         RowBox[{"pointsImplicitLine", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"x1", ",", "y1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"x2", ",", "y2"}], "}"}]}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Graphics", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"EdgeForm", "[", "Black", "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"FaceForm", "[", "None", "]"}], ",", "\[IndentingNewLine]", 
+          
+          RowBox[{"Polygon", "[", "ps", "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"Disk", "[", 
+           RowBox[{"incenter", ",", "radius"}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Point", "[", "incenter", "]"}]}], "\[IndentingNewLine]", 
+         "}"}], "\[IndentingNewLine]", ",", 
+        RowBox[{"PlotRange", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "}"}]}]}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ps", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1", ",", "2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", 
+           RowBox[{"-", "2"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1"}], "}"}]}], "}"}]}], "}"}], ",", "Locator"}], 
+    "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBWIQXb9Ee8XCPW8cv7iFrATRhzZP3Aii/ZKPngPR373O
+XALRMaKu10F0zinVZyA6dVbNHxB9lyNRchGQPsgbJwOij23hNgHRq+32m4Jo
++8LaCBD9pHghmBbfeboHRD+auHExiBZ59nsliHbedXkbiJ5UZr4bRO/aJHAa
+ROu8u3wORP94WHMdRH/TZrwDosMCG96B6GUn334C0UHX7H6B6N8KihyLgXTA
+7mMCIJrFap4EiG66eMQMRPf4f7EG0YemKruC6Bc5rN4gOu+vih+I/ibBFgyi
+S95XhYHo/XUOpueB9ImojWA6Rspf9MzeN44ddjViIPrG/UtmIPrMtRtgGgCh
+LcSX
+  "],
+ CellLabel->
+  "In[184]:=",ExpressionUUID->"d6dc4764-21bb-487b-a940-3053580f17fe"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`ps$$ = {{1, 2}, {-2, -2}, {1, 1}}, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`ps$$], {{1, 2}, {-2, -2}, {1, 1}}}, Automatic}}, 
+    Typeset`size$$ = {720., {355., 365.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`ps$$ = {{1, 2}, {-2, -2}, {1, 1}}}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`a$, $CellContext`b$, $CellContext`c$, \
+$CellContext`x1$, $CellContext`x2$, $CellContext`x3$, $CellContext`y1$, \
+$CellContext`y2$, $CellContext`y3$, $CellContext`incenter$, \
+$CellContext`radius$}, {{$CellContext`x1$, $CellContext`y1$}, \
+{$CellContext`x2$, $CellContext`y2$}, {$CellContext`x3$, $CellContext`y3$}} = \
+$CellContext`ps$$; {$CellContext`a$, $CellContext`b$, $CellContext`c$} = {
+           $CellContext`pointsDistance[{$CellContext`x2$, $CellContext`y2$}, \
+{$CellContext`x3$, $CellContext`y3$}], 
+           $CellContext`pointsDistance[{$CellContext`x1$, $CellContext`y1$}, \
+{$CellContext`x3$, $CellContext`y3$}], 
+           $CellContext`pointsDistance[{$CellContext`x1$, $CellContext`y1$}, \
+{$CellContext`x2$, $CellContext`y2$}]}; $CellContext`incenter$ = \
+{($CellContext`a$ $CellContext`x1$ + $CellContext`b$ $CellContext`x2$ + \
+$CellContext`c$ $CellContext`x3$)/($CellContext`a$ + $CellContext`b$ + \
+$CellContext`c$), ($CellContext`a$ $CellContext`y1$ + $CellContext`b$ \
+$CellContext`y2$ + $CellContext`c$ $CellContext`y3$)/($CellContext`a$ + \
+$CellContext`b$ + $CellContext`c$)}; $CellContext`radius$ = \
+$CellContext`pointToLineDistance[$CellContext`incenter$, 
+           $CellContext`pointsImplicitLine[{$CellContext`x1$, \
+$CellContext`y1$}, {$CellContext`x2$, $CellContext`y2$}]]; Graphics[{
+           EdgeForm[Black], 
+           FaceForm[None], 
+           Polygon[$CellContext`ps$$], 
+           Disk[$CellContext`incenter$, $CellContext`radius$], 
+           Point[$CellContext`incenter$]}, PlotRange -> {{-2, 2}, {-2, 2}}]], 
+      "Specifications" :> {{{$CellContext`ps$$, {{1, 2}, {-2, -2}, {1, 1}}}, 
+         Automatic, ControlType -> Locator}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{818., {417., 429.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`pointsDistance[
+         Pattern[$CellContext`p1, 
+          Blank[]], 
+         Pattern[$CellContext`p2, 
+          Blank[]]] := 
+       Module[{$CellContext`d}, $CellContext`d = Length[$CellContext`p1]; Sqrt[
+           Total[
+            
+            Table[(Part[$CellContext`p1, $CellContext`i] - 
+              Part[$CellContext`p2, $CellContext`i])^2, {$CellContext`i, 
+              1, $CellContext`d}]]]], $CellContext`pointToLineDistance[{
+          Pattern[$CellContext`x, 
+           Blank[]], 
+          Pattern[$CellContext`y, 
+           Blank[]]}, 
+         Pattern[$CellContext`implicitLine, 
+          Blank[]]] := 
+       ReplaceAll[
+        RealAbs[$CellContext`a $CellContext`x + $CellContext`b $CellContext`y + \
+$CellContext`c]/
+         Sqrt[$CellContext`a^2 + $CellContext`b^2], \
+$CellContext`implicitLine], $CellContext`pointsImplicitLine[{
+          Pattern[$CellContext`x1, 
+           Blank[]], 
+          Pattern[$CellContext`y1, 
+           Blank[]]}, {
+          Pattern[$CellContext`x2, 
+           Blank[]], 
+          Pattern[$CellContext`y2, 
+           Blank[]]}] := Module[{$CellContext`k}, 
+         Flatten[
+          Solve[{
+            
+            ReplaceAll[$CellContext`a $CellContext`x + $CellContext`b \
+$CellContext`y + $CellContext`c == 
+             0, {$CellContext`x -> $CellContext`x1, $CellContext`y -> \
+$CellContext`y1}], 
+            
+            ReplaceAll[$CellContext`a $CellContext`x + $CellContext`b \
+$CellContext`y + $CellContext`c == 
+             0, {$CellContext`x -> $CellContext`x2, $CellContext`y -> \
+$CellContext`y2}], $CellContext`a == 
+            1}, {$CellContext`a, $CellContext`b, $CellContext`c}]]]}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.856993862801331*^9, 3.856993910419643*^9}, {
+   3.8569939453775*^9, 3.856993978436138*^9}, {3.856994105949602*^9, 
+   3.856994219445265*^9}, 3.856994276241589*^9, {3.856994513872423*^9, 
+   3.856994531247649*^9}, {3.856994720930305*^9, 3.856994734271315*^9}, {
+   3.856995811070456*^9, 3.85699583089885*^9}, 3.856996001659129*^9, 
+   3.8569963090900297`*^9, {3.856996430976816*^9, 3.856996486471586*^9}, {
+   3.856996549299718*^9, 3.856996585112035*^9}, 3.856996791432424*^9, 
+   3.856996833207412*^9, {3.856996905754877*^9, 3.856996922306122*^9}, {
+   3.8569969533846893`*^9, 3.856996977489058*^9}, {3.85699702777995*^9, 
+   3.856997044095669*^9}, 3.85700127060145*^9, 3.857081370916267*^9, 
+   3.857085184779538*^9, 3.8570869089721127`*^9, {3.8576046292689247`*^9, 
+   3.857604663430711*^9}, 3.857604788402809*^9, 3.857604869809346*^9, 
+   3.857605049073621*^9},
+ CellLabel->
+  "Out[187]=",ExpressionUUID->"a12b1b26-400f-46a9-8507-5f178a571c26"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"defineConic", "[", "pts_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"a", " ", 
+                SuperscriptBox["x", "2"]}], "+", 
+               RowBox[{"b", " ", "x", " ", "y"}], "+", 
+               RowBox[{"c", " ", 
+                SuperscriptBox["y", "2"]}], "+", 
+               RowBox[{"d", " ", "x"}], "+", 
+               RowBox[{"e", " ", "y"}], "+", "f"}], "\[Equal]", "0"}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"x", "\[Rule]", 
+                RowBox[{
+                "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}],
+                ",", 
+               RowBox[{"y", "\[Rule]", 
+                RowBox[{
+                "#", "\[LeftDoubleBracket]", "2", 
+                 "\[RightDoubleBracket]"}]}]}], "}"}]}], "&"}], ")"}], "/@", 
+          "pts"}], ")"}], "~", "Join", "~", 
+        RowBox[{"{", 
+         RowBox[{"a", "\[Equal]", "1"}], "}"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", "b", ",", "c", ",", "d", ",", "e", ",", "f"}], 
+        "}"}]}], "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"conic", ",", "coefficients"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"coefficients", "=", 
+       RowBox[{"defineConic", "[", "pts", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"ContourPlot", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"a", " ", 
+             SuperscriptBox["x", "2"]}], "+", 
+            RowBox[{"b", " ", "x", " ", "y"}], "+", 
+            RowBox[{"c", " ", 
+             SuperscriptBox["y", "2"]}], "+", 
+            RowBox[{"d", " ", "x"}], "+", 
+            RowBox[{"e", " ", "y"}], "+", "f"}], "\[Equal]", "0"}], "/.", 
+          "coefficients"}], "//", "Evaluate"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", 
+          RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"y", ",", 
+          RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}]}], 
+       "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pts", ",", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"RandomReal", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "10"}], ",", "10"}], "}"}], "]"}], ",", 
+           RowBox[{"RandomReal", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "10"}], ",", "10"}], "}"}], "]"}]}], "}"}], ",", 
+         "5"}], "]"}]}], "}"}], ",", "Locator"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.85699928498171*^9, 3.8569994757494183`*^9}, {
+  3.857000329330573*^9, 3.857000658636177*^9}, {3.857086877024233*^9, 
+  3.857086883237842*^9}},
+ CellLabel->
+  "In[188]:=",ExpressionUUID->"6bd4bae8-9f04-460c-9245-043dd351caeb"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`pts$$ = {{-8.987280460790043, \
+-8.854534104513242}, {-6.879105332068281, -7.617224489589368}, \
+{-7.815755999241844, -7.983179188144568}, {-7.90712084534977, \
+-5.10172307390663}, {9.010393556347289, -4.967695794581015}}, Typeset`show$$ =
+     True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`pts$$], {{-8.987280460790043, -8.854534104513242}, \
+{-6.879105332068281, -7.617224489589368}, {-7.815755999241844, \
+-7.983179188144568}, {-7.90712084534977, -5.10172307390663}, {
+       9.010393556347289, -4.967695794581015}}}, Automatic}}, 
+    Typeset`size$$ = {720., {348., 358.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`pts$$ = {{-8.987280460790043, \
+-8.854534104513242}, {-6.879105332068281, -7.617224489589368}, \
+{-7.815755999241844, -7.983179188144568}, {-7.90712084534977, \
+-5.10172307390663}, {9.010393556347289, -4.967695794581015}}}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`conic$, $CellContext`coefficients$}, \
+$CellContext`coefficients$ = $CellContext`defineConic[$CellContext`pts$$]; 
+        ContourPlot[
+          Evaluate[
+           
+           ReplaceAll[$CellContext`a $CellContext`x^2 + $CellContext`b \
+$CellContext`x $CellContext`y + $CellContext`c $CellContext`y^2 + \
+$CellContext`d $CellContext`x + $CellContext`e $CellContext`y + \
+$CellContext`f == 0, $CellContext`coefficients$]], {$CellContext`x, -10, 
+           10}, {$CellContext`y, -10, 10}, PerformanceGoal -> "Quality"]], 
+      "Specifications" :> {{{$CellContext`pts$$, {{-8.987280460790043, \
+-8.854534104513242}, {-6.879105332068281, -7.617224489589368}, \
+{-7.815755999241844, -7.983179188144568}, {-7.90712084534977, \
+-5.10172307390663}, {9.010393556347289, -4.967695794581015}}}, Automatic, 
+         ControlType -> Locator}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{818., {410., 422.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`defineConic[
+         Pattern[$CellContext`pts, 
+          Blank[]]] := Module[{}, 
+         Solve[
+          Join[
+           Map[
+           ReplaceAll[$CellContext`a $CellContext`x^2 + $CellContext`b \
+$CellContext`x $CellContext`y + $CellContext`c $CellContext`y^2 + \
+$CellContext`d $CellContext`x + $CellContext`e $CellContext`y + \
+$CellContext`f == 
+             0, {$CellContext`x -> Part[#, 1], $CellContext`y -> 
+              Part[#, 2]}]& , $CellContext`pts], {$CellContext`a == 
+            1}], {$CellContext`a, $CellContext`b, $CellContext`c, \
+$CellContext`d, $CellContext`e, $CellContext`f}]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.8570005652742453`*^9, 3.857000626798409*^9}, {
+   3.857000659014968*^9, 3.857000667363357*^9}, {3.8570008066345*^9, 
+   3.8570008145666656`*^9}, 3.857001270713016*^9, 3.857081371173996*^9, 
+   3.857085184972101*^9, 3.8570869091148157`*^9, {3.8576046293836737`*^9, 
+   3.857604658505357*^9}, 3.85760487012782*^9, 3.857605049169362*^9},
+ CellLabel->
+  "Out[189]=",ExpressionUUID->"de82ca43-e3c3-4898-8e76-2f03369b6210"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"minR", ":", " ", 
+    RowBox[{"the", " ", "result", " ", "of", " ", 
+     RowBox[{
+      TagBox[
+       RowBox[{"Minimize", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           SqrtBox[
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "x"}], "+", "x0"}], ")"}], "2"], "+", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "y"}], "+", "y0"}], ")"}], "2"]}]], ",", 
+           RowBox[{
+            RowBox[{
+             FractionBox[
+              SuperscriptBox["x", "2"], "5"], "+", 
+             FractionBox[
+              SuperscriptBox["y", "2"], "3"]}], "\[Equal]", "1"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "y"}], "}"}], ",", 
+         TemplateBox[{},
+          "Reals"]}], "]"}],
+       HoldForm], "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}]}], 
+   " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"minR", "=", 
+     RowBox[{
+     "Uncompress", "[", 
+      "\"\<1:eJztXT2PG0UYtvH6ciERR5GGBik9RUSdAgpASJE4Xa6iO3JraU/\
+mLG595E6CAokmXYr8hlMKfgRKlYqKghaJkhJBcXHMjvd21zPzvvOxXns//DS+W3s8834+z+68M+\
+P730wORu/0er04SF4eRfG0uDo4H4dxP/nnIn3vdvKyH4VPwqdRHI4G9JeULiaT6Uh0Ee8mL5+\
+fnz6ZRpPT0a3s8/3xeRx9kPyTfmWYvBxG34Zx9KP03v7kaXgWi8uLB5H4k45eNP9tPp8rzaNh3oUY+\
++BIjHw0joQ0aR9ye9NoTr0sJClUF6qpWn0sLtOOR8HqGmRdVaNIP5P88XgyXbyv6jZY1i36V5I41UJ\
+2pdVt7+rNN+62tBddeVJgoTNjdaKHgdtA4iq19yBz6lc3eok3Pj09Ljr57Lvzo7EmQSrcW/\
+cQSlrOFTsUPV8+iHr5R5IEd5OXL87Co2l4Rgvi60LLoKJJLILky9NQtIyml6rShDOtSi+\
+Q7FEYx8tKpOiVvFm5NoBFwCJgsRwsFm0pWHTAh3mZAMqggIeGTSEuhVRVqFgdaO1K0f+nnh/R7281+\
+bLxCKiITnJ1DKO+J43680Dv5vA/etQLetT7t9gUDYjmdxmdkuY7RPPxzGwCJZ/\
+Odsx44d7TD29YOQNLT4oKP/EqBMTAfzHNzSpQpn6hh3fWnDD1aEeKjE/e6Gj8kat10+\
+bf85qQkeHnoPcZ7RxcrQz8tcWsdiKTTXfR18f4hQ97SiQD71GmO/Qz3Yd8756mu+\
+0akWZWVMwp3xf8StwX3HPVIG3+D58JjuQ9IHp11LB4SrE7GfAN+AZ8+zkI8A343gR8+z+ei/\
+v37NFD8eGxuLz5CJgPzAfmA/OB+Y3DfIdACiTNHxKDHvtp/\
+pBpzvjzb8z6gEJAIaAQUEgzKcTRGoq3/lihMlRSUGFeslqUd7KeIrqo3t4Ux2/\
+8Qz5lFVroPQpJy1X68oAb9nQTEgUiv4Lg+\
+i0oGiiVvEUxSi7FXbKlONjWy7ZqmhJatMKEbHhw9dT1pb8iSVcsTNiw0lVAOmpuZPGR4q1ya4/\
+KBIvz2gLC0yCiVjsHHNcVt3UF3LXIk5YbdQoUt4KeHdxTxoLrWC8LkmqIN8BKrfVTV0DM5ymuHc4C5\
+ZjHasISbDBQM50DQuqK27qCeBXzU/\
+N8tz10xXJ9FU7ieKWezT38FKdhhcUdyRXUbp4w0Bxoql4Or73WQDxzLTVbq7vP+\
+2xzauXCCWHnPc84tmeMrktu65lLmZeRI5AHfq3L5quLqcJcm5oKz0uVdtX9r5KvMYtWX864mrQkiWL\
+UMgHCVL5rM6DvMrArYvWCjAnW/J9bYsu+uqM9aajI4bhE4mrlJRLEQhaHtRwLFsiO+\
+LgsGKk44iMPBu6ID/PdgRxLQ0J1j5sV882D/12BIomWrQaOxDZ9bNMXzbFNv2faF8g+MCC1kFpILZ/\
+UcqQz8R9ODmpbmcCgDe62QAmgBFACeygS7raQWkitilPLUWrxggPJqq1ZON8LZeFPV+\
+7tN0hUvDJTklqKGxB1d3kMHIaGbbFpc2yLdXMQtsUupayf6bAttuZtsayTAd+\
+Ab8C3n4MA34DvTcC3/9wBDkMD5rtmGDAfmA/\
+Mbxrm4zA0UAgoBBQCCgGFrDzr41W2quEwNOX7ZarEqGmA3YiBwW5gN7Bbt9kNNQ3AN+\
+Ab8A34bhF8o6YBzAfmA/OB+\
+YQ5O4r5qGmAQkAhoBBQCCik6zWNJaOAScAkYBIwCZikeUzCbPMTmyMXMuHXuW50qvZsy7VYUDTA2a7\
+pxeZ//YiyfgVedd5UTPgESddq52xTPlfwkzZlbIzfTFlXOjXAG9uUPwY+dHBWQ0+\
+7QCY10zlIrEacUr8QzX7WSmo1qbBEGQfnqmAO0dEtmEN0jAw/B2EOcSll/UyHOcSaq1GskwHfgG/\
+At5+DAN+A703AN6lrjtdYgwzMB+YD84H5XcJ8rEEGhYBCQCGgEFDIyrM+ZmvUvgZZ/\
+T7OVQG7gd3AbmA3sBtqGoBvXxUA34BvZ9MBvlHTUAIImA/MB+\
+YD84H5qGmAQkAhoBBQCCikGRTiaI3aaxpLRgGTgEnAJGASMEnzmKQ556qIBspmzcUeQnano+\
+onRXd9rObt4tyUbXMlluzYlZ2whA0rPVRFMVtXTlRBurXSbduTyQ7uKWPB9Z/dgTRqoJ+QN+\
+axmndSB9Ko+\
+W7bnqxiIakKJ9luNJUw1zsZSJ1QiwcWTnF20FKHbp4YSp7YIzxxbXnoVYSiwnHPUyi7nnos5DrMXB7\
+SGTmUgXcy2zuszrgjCUEt4w4Dr8mG4bWX3Z+\
+5zgxZJ2Oe99nm1ETjSZsdHsgDv9Zl89XFNCFUm5oKGEkTY6r7X/WLoFcEfjnjihGSJIpRywQIU/\
+KozYC+9f8rYrJRxgRr/s8tsWWfjG1PGipyONbGrlaujRHzzl5LtwmdQRQgChAFiAJEsc1EYdXkf7+\
+ixJE=\>\"", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"min", ",", "minP"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"minP", "=", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"x", ",", "y"}], "}"}], "/.", 
+            RowBox[{"(", 
+             RowBox[{"minR", "/.", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"x0", "\[Rule]", 
+                 RowBox[{
+                 "point", "\[LeftDoubleBracket]", "1", 
+                  "\[RightDoubleBracket]"}]}], ",", 
+                RowBox[{"y0", "\[Rule]", 
+                 RowBox[{
+                 "point", "\[LeftDoubleBracket]", "2", 
+                  "\[RightDoubleBracket]"}]}]}], "}"}]}], ")"}]}], "//", 
+           "N"}], "//", "Re"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"ContourPlot", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              FractionBox[
+               SuperscriptBox["x", "2"], "5"], "+", 
+              FractionBox[
+               SuperscriptBox["y", "2"], "3"]}], "\[Equal]", "1"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", 
+              RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"y", ",", 
+              RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+            RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}]}], 
+           "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"Point", "[", "minP", "]"}], ",", "\[IndentingNewLine]", 
+             
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{"minP", ",", "point"}], "}"}], "]"}]}], 
+            "\[IndentingNewLine]", "}"}], "]"}]}], "\[IndentingNewLine]", 
+         "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+     
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"point", ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0"}], "}"}]}], "}"}], ",", "Locator"}], "}"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.8570813772043953`*^9, 3.857081484938615*^9}, {
+   3.8570817567462797`*^9, 3.857082032346569*^9}, {3.8570820634049063`*^9, 
+   3.85708207684564*^9}, {3.857082127019726*^9, 3.8570821643269453`*^9}, {
+   3.857083345395485*^9, 3.857083364783539*^9}, {3.857083858305757*^9, 
+   3.857083899700265*^9}, {3.857083963926306*^9, 3.857084000767633*^9}, {
+   3.857084408170041*^9, 3.85708448289616*^9}, {3.857084524880801*^9, 
+   3.8570845295331573`*^9}, 3.857084671276861*^9, {3.857084707463871*^9, 
+   3.857084853203395*^9}, {3.8570848874235277`*^9, 3.857084894173674*^9}, {
+   3.8570850128923264`*^9, 3.857085031589734*^9}, {3.857085167185499*^9, 
+   3.857085167342147*^9}, {3.857085391427786*^9, 3.857085449278308*^9}, {
+   3.857085565179957*^9, 3.857085571202753*^9}, {3.857085988847043*^9, 
+   3.857086053217038*^9}, {3.857086085336452*^9, 3.857086124646323*^9}},
+ CellLabel->
+  "In[190]:=",ExpressionUUID->"9268499c-7cb8-406a-b4c4-6b8372005bfe"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`point$$ = {1, 0}, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`point$$], {1, 0}}, Automatic}}, Typeset`size$$ = {
+    720., {354., 364.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`point$$ = {1, 0}}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`min$, $CellContext`minP$}, $CellContext`minP$ = 
+         Re[
+           N[
+            ReplaceAll[{$CellContext`x, $CellContext`y}, 
+             
+             ReplaceAll[$CellContext`minR, {$CellContext`x0 -> 
+               Part[$CellContext`point$$, 1], $CellContext`y0 -> 
+               Part[$CellContext`point$$, 2]}]]]]; Show[
+          
+          ContourPlot[$CellContext`x^2/5 + $CellContext`y^2/3 == 
+           1, {$CellContext`x, -3, 3}, {$CellContext`y, -3, 3}, 
+           PerformanceGoal -> "Quality"], 
+          Graphics[{
+            Point[$CellContext`minP$], 
+            Line[{$CellContext`minP$, $CellContext`point$$}]}]]], 
+      "Specifications" :> {{{$CellContext`point$$, {1, 0}}, Automatic, 
+         ControlType -> Locator}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{818., {416., 428.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`minR = {$CellContext`x -> Piecewise[{{
+             Root[
+             25 + 125 $CellContext`x0^2 - 50 Sqrt[5] 
+              Sqrt[$CellContext`x0^2] + (50 $CellContext`x0 - 50 
+                Sqrt[5] $CellContext`x0 Sqrt[$CellContext`x0^2]) # + (-10 + 
+                25 $CellContext`x0^2 + 
+                10 Sqrt[5] Sqrt[$CellContext`x0^2]) #^2 - 
+              10 $CellContext`x0 #^3 + #^4& , 1], 
+             Or[
+              And[$CellContext`x0 == (-2)/Sqrt[5], $CellContext`y0 == 0], 
+              And[$CellContext`x0 >= Sqrt[5], $CellContext`y0 == 0], 
+              And[
+               Inequality[2/Sqrt[5], LessEqual, $CellContext`x0, Less, 
+                Sqrt[5]], $CellContext`y0 == 0]]}, {
+             Root[
+             25 + 125 $CellContext`x0^2 - 50 Sqrt[5] 
+              Sqrt[$CellContext`x0^2] + (50 $CellContext`x0 - 50 
+                Sqrt[5] $CellContext`x0 Sqrt[$CellContext`x0^2]) # + (-10 + 
+                25 $CellContext`x0^2 + 
+                10 Sqrt[5] Sqrt[$CellContext`x0^2]) #^2 - 
+              10 $CellContext`x0 #^3 + #^4& , 3], 
+             Or[
+              And[
+               
+               Inequality[-Sqrt[5], Less, $CellContext`x0, Less, (-2)/Sqrt[
+                5]], $CellContext`y0 == 0], 
+              And[$CellContext`x0 <= -Sqrt[5], $CellContext`y0 == 0]]}, {
+             Root[
+             225 - 300 $CellContext`y0^2 - 150 
+              Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                900 $CellContext`x0^4 $CellContext`y0^2 - 
+                639 $CellContext`y0^4 - 
+                540 $CellContext`x0^2 $CellContext`y0^4 - 
+                108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                  650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                  240 $CellContext`x0^2 $CellContext`y0^2 + 
+                  90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                  25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                  30 $CellContext`x0^2 $CellContext`y0^2 + 
+                  9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                  12 $CellContext`y0^2) #^3 + 4 #^4& , 1] + 
+              25 Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                  500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                  1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                  900 $CellContext`x0^4 $CellContext`y0^2 - 
+                  639 $CellContext`y0^4 - 
+                  540 $CellContext`x0^2 $CellContext`y0^4 - 
+                  108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 
+                  1]^2 + ((-300) $CellContext`x0 + 
+                100 $CellContext`x0 
+                 Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                   500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                   1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                   900 $CellContext`x0^4 $CellContext`y0^2 - 
+                   639 $CellContext`y0^4 - 
+                   540 $CellContext`x0^2 $CellContext`y0^4 - 
+                   108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1]) # + (60 + 
+                100 $CellContext`x0^2 + 60 $CellContext`y0^2 - 20 
+                Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                  500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                  1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                  900 $CellContext`x0^4 $CellContext`y0^2 - 
+                  639 $CellContext`y0^4 - 
+                  540 $CellContext`x0^2 $CellContext`y0^4 - 
+                  108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1]) #^2 - 
+              40 $CellContext`x0 #^3 + 4 #^4& , 1], 
+             Or[
+              
+              And[$CellContext`x0 == (-2)/Sqrt[5], $CellContext`y0 > 
+               Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]], 
+              And[$CellContext`x0 == (-2)/Sqrt[5], 
+               Inequality[
+               0, Less, $CellContext`y0, Less, Sqrt[3/5] 
+                Sqrt[5 - $CellContext`x0^2]]], 
+              And[$CellContext`x0 == (-2)/Sqrt[5], 
+               
+               Inequality[-(Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]), 
+                Less, $CellContext`y0, Less, 0]], 
+              
+              And[$CellContext`x0 == (-2)/Sqrt[
+                5], $CellContext`y0 < -(Sqrt[3/5] 
+                 Sqrt[5 - $CellContext`x0^2])], 
+              And[$CellContext`x0 >= Sqrt[5], $CellContext`y0 > 0], 
+              And[$CellContext`x0 >= Sqrt[5], $CellContext`y0 < 0], 
+              And[
+               
+               Inequality[(-2)/Sqrt[5], Less, $CellContext`x0, Less, 2/Sqrt[
+                5]], $CellContext`y0 > Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]], 
+              And[
+               
+               Inequality[(-2)/Sqrt[5], Less, $CellContext`x0, Less, 2/Sqrt[
+                5]], 
+               Inequality[
+               0, Less, $CellContext`y0, Less, Sqrt[3/5] 
+                Sqrt[5 - $CellContext`x0^2]]], 
+              And[
+               
+               Inequality[(-2)/Sqrt[5], Less, $CellContext`x0, Less, 2/Sqrt[
+                5]], 
+               
+               Inequality[-(Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]), 
+                Less, $CellContext`y0, LessEqual, 0]], 
+              And[
+               
+               Inequality[(-2)/Sqrt[5], Less, $CellContext`x0, Less, 2/Sqrt[
+                5]], $CellContext`y0 < -(Sqrt[3/5] 
+                 Sqrt[5 - $CellContext`x0^2])], 
+              And[
+               Inequality[2/Sqrt[5], LessEqual, $CellContext`x0, Less, 
+                Sqrt[5]], $CellContext`y0 > 
+               Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]], 
+              And[
+               Inequality[2/Sqrt[5], LessEqual, $CellContext`x0, Less, 
+                Sqrt[5]], 
+               Inequality[
+               0, Less, $CellContext`y0, Less, Sqrt[3/5] 
+                Sqrt[5 - $CellContext`x0^2]]], 
+              And[
+               Inequality[2/Sqrt[5], LessEqual, $CellContext`x0, Less, 
+                Sqrt[5]], 
+               
+               Inequality[-(Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]), 
+                Less, $CellContext`y0, Less, 0]], 
+              And[
+               Inequality[2/Sqrt[5], LessEqual, $CellContext`x0, Less, 
+                Sqrt[
+                5]], $CellContext`y0 < -(Sqrt[3/5] 
+                 Sqrt[5 - $CellContext`x0^2])], 
+              And[
+               
+               Inequality[-Sqrt[5], Less, $CellContext`x0, Less, (-2)/Sqrt[
+                5]], $CellContext`y0 > Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]], 
+              And[
+               
+               Inequality[-Sqrt[5], Less, $CellContext`x0, Less, (-2)/Sqrt[
+                5]], 
+               Inequality[
+               0, Less, $CellContext`y0, Less, Sqrt[3/5] 
+                Sqrt[5 - $CellContext`x0^2]]], 
+              And[
+               
+               Inequality[-Sqrt[5], Less, $CellContext`x0, Less, (-2)/Sqrt[
+                5]], 
+               
+               Inequality[-(Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]), 
+                Less, $CellContext`y0, Less, 0]], 
+              And[
+               
+               Inequality[-Sqrt[5], Less, $CellContext`x0, Less, (-2)/Sqrt[
+                5]], $CellContext`y0 < -(Sqrt[3/5] 
+                 Sqrt[5 - $CellContext`x0^2])], 
+              And[$CellContext`x0 <= -Sqrt[5], $CellContext`y0 > 0], 
+              And[$CellContext`x0 <= -Sqrt[5], $CellContext`y0 < 0]]}}, 
+           Root[
+           225 + 1125 $CellContext`x0^2 - 1275 $CellContext`y0^2 - 
+            375 $CellContext`x0^2 $CellContext`y0^2 + 400 $CellContext`y0^4 - 
+            150 Sqrt[15] Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))] + 
+            200 Sqrt[15] $CellContext`y0^2 
+             Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))] + (
+              450 $CellContext`x0 - 600 $CellContext`x0 $CellContext`y0^2 - 
+              150 Sqrt[15] $CellContext`x0 
+              Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))]) # + (-90 + 
+              225 $CellContext`x0^2 + 255 $CellContext`y0^2 + 
+              30 Sqrt[15] 
+               Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))]) #^2 - 
+            90 $CellContext`x0 #^3 + 9 #^4& , 1]], $CellContext`y -> 
+         Piecewise[{{-
+             Sqrt[5 - 2 Sqrt[5] Sqrt[$CellContext`x0^2] + 
+               2 $CellContext`x0 
+                Root[
+                 25 + 125 $CellContext`x0^2 - 50 Sqrt[5] 
+                  Sqrt[$CellContext`x0^2] + (50 $CellContext`x0 - 50 
+                    Sqrt[5] $CellContext`x0 Sqrt[$CellContext`x0^2]) # + (-10 + 
+                    25 $CellContext`x0^2 + 
+                    10 Sqrt[5] Sqrt[$CellContext`x0^2]) #^2 - 
+                  10 $CellContext`x0 #^3 + #^4& , 1] - 
+               Root[25 + 125 $CellContext`x0^2 - 50 Sqrt[5] 
+                 Sqrt[$CellContext`x0^2] + (50 $CellContext`x0 - 50 
+                   Sqrt[5] $CellContext`x0 Sqrt[$CellContext`x0^2]) # + (-10 + 
+                   25 $CellContext`x0^2 + 
+                   10 Sqrt[5] Sqrt[$CellContext`x0^2]) #^2 - 
+                 10 $CellContext`x0 #^3 + #^4& , 1]^2], 
+             Or[
+              And[$CellContext`x0 == (-2)/Sqrt[5], $CellContext`y0 == 0], 
+              And[$CellContext`x0 >= Sqrt[5], $CellContext`y0 == 0], 
+              And[
+               Inequality[2/Sqrt[5], LessEqual, $CellContext`x0, Less, 
+                Sqrt[5]], $CellContext`y0 == 0]]}, {-
+             Sqrt[5 - 2 Sqrt[5] Sqrt[$CellContext`x0^2] + 
+               2 $CellContext`x0 
+                Root[25 + 125 $CellContext`x0^2 - 50 Sqrt[5] 
+                  Sqrt[$CellContext`x0^2] + (50 $CellContext`x0 - 50 
+                    Sqrt[5] $CellContext`x0 Sqrt[$CellContext`x0^2]) # + (-10 + 
+                    25 $CellContext`x0^2 + 
+                    10 Sqrt[5] Sqrt[$CellContext`x0^2]) #^2 - 
+                  10 $CellContext`x0 #^3 + #^4& , 3] - 
+               Root[25 + 125 $CellContext`x0^2 - 50 Sqrt[5] 
+                 Sqrt[$CellContext`x0^2] + (50 $CellContext`x0 - 50 
+                   Sqrt[5] $CellContext`x0 Sqrt[$CellContext`x0^2]) # + (-10 + 
+                   25 $CellContext`x0^2 + 
+                   10 Sqrt[5] Sqrt[$CellContext`x0^2]) #^2 - 
+                 10 $CellContext`x0 #^3 + #^4& , 3]^2], 
+             Or[
+              And[
+               
+               Inequality[-Sqrt[5], Less, $CellContext`x0, Less, (-2)/Sqrt[
+                5]], $CellContext`y0 == 0], 
+              
+              And[$CellContext`x0 <= -Sqrt[5], $CellContext`y0 == 
+               0]]}, {$CellContext`y0 - 
+             Sqrt[$CellContext`y0^2 + 
+              2 $CellContext`x0 
+               Root[225 - 300 $CellContext`y0^2 - 150 
+                 Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                   500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                   1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                   900 $CellContext`x0^4 $CellContext`y0^2 - 
+                   639 $CellContext`y0^4 - 
+                   540 $CellContext`x0^2 $CellContext`y0^4 - 
+                   108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1] + 
+                 25 Root[
+                    900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                    500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 
+                    1]^2 + ((-300) $CellContext`x0 + 
+                   100 $CellContext`x0 
+                    Root[900 - 2220 $CellContext`x0^2 + 
+                    1825 $CellContext`x0^4 - 500 $CellContext`x0^6 - 
+                    660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1]) # + (60 + 
+                   100 $CellContext`x0^2 + 60 $CellContext`y0^2 - 20 
+                   Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                    500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1]) #^2 - 
+                 40 $CellContext`x0 #^3 + 4 #^4& , 1] - 
+              Root[225 - 300 $CellContext`y0^2 - 150 
+                Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                  500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                  1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                  900 $CellContext`x0^4 $CellContext`y0^2 - 
+                  639 $CellContext`y0^4 - 
+                  540 $CellContext`x0^2 $CellContext`y0^4 - 
+                  108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1] + 
+                25 Root[
+                   900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                    500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 
+                    1]^2 + ((-300) $CellContext`x0 + 
+                  100 $CellContext`x0 
+                   Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                    500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1]) # + (60 + 
+                  100 $CellContext`x0^2 + 60 $CellContext`y0^2 - 20 
+                  Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                    500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1]) #^2 - 
+                40 $CellContext`x0 #^3 + 4 #^4& , 1]^2 + 
+              Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                900 $CellContext`x0^4 $CellContext`y0^2 - 
+                639 $CellContext`y0^4 - 
+                540 $CellContext`x0^2 $CellContext`y0^4 - 
+                108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                  650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                  240 $CellContext`x0^2 $CellContext`y0^2 + 
+                  90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                  25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                  30 $CellContext`x0^2 $CellContext`y0^2 + 
+                  9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                  12 $CellContext`y0^2) #^3 + 4 #^4& , 1]], 
+             Or[
+              
+              And[$CellContext`x0 == (-2)/Sqrt[5], $CellContext`y0 > 
+               Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]], 
+              And[$CellContext`x0 == (-2)/Sqrt[5], 
+               
+               Inequality[-(Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]), 
+                Less, $CellContext`y0, Less, 0]], 
+              And[$CellContext`x0 >= Sqrt[5], $CellContext`y0 > 0], 
+              And[
+               
+               Inequality[(-2)/Sqrt[5], Less, $CellContext`x0, Less, 2/Sqrt[
+                5]], $CellContext`y0 > Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]], 
+              And[
+               
+               Inequality[(-2)/Sqrt[5], Less, $CellContext`x0, Less, 2/Sqrt[
+                5]], 
+               
+               Inequality[-(Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]), 
+                Less, $CellContext`y0, LessEqual, 0]], 
+              And[
+               Inequality[2/Sqrt[5], LessEqual, $CellContext`x0, Less, 
+                Sqrt[5]], $CellContext`y0 > 
+               Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]], 
+              And[
+               Inequality[2/Sqrt[5], LessEqual, $CellContext`x0, Less, 
+                Sqrt[5]], 
+               
+               Inequality[-(Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]), 
+                Less, $CellContext`y0, Less, 0]], 
+              And[
+               
+               Inequality[-Sqrt[5], Less, $CellContext`x0, Less, (-2)/Sqrt[
+                5]], $CellContext`y0 > Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]], 
+              And[
+               
+               Inequality[-Sqrt[5], Less, $CellContext`x0, Less, (-2)/Sqrt[
+                5]], 
+               
+               Inequality[-(Sqrt[3/5] Sqrt[5 - $CellContext`x0^2]), 
+                Less, $CellContext`y0, Less, 0]], 
+              
+              And[$CellContext`x0 <= -Sqrt[5], $CellContext`y0 > 
+               0]]}, {$CellContext`y0 + 
+             Sqrt[$CellContext`y0^2 + 
+               2 $CellContext`x0 
+                Root[225 - 300 $CellContext`y0^2 - 150 
+                  Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                    500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1] + 
+                  25 Root[
+                    900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                    500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 
+                    1]^2 + ((-300) $CellContext`x0 + 
+                    100 $CellContext`x0 
+                    Root[900 - 2220 $CellContext`x0^2 + 
+                    1825 $CellContext`x0^4 - 500 $CellContext`x0^6 - 
+                    660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1]) # + (60 + 
+                    100 $CellContext`x0^2 + 60 $CellContext`y0^2 - 20 
+                    Root[900 - 2220 $CellContext`x0^2 + 
+                    1825 $CellContext`x0^4 - 500 $CellContext`x0^6 - 
+                    660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1]) #^2 - 
+                  40 $CellContext`x0 #^3 + 4 #^4& , 1] - 
+               Root[225 - 300 $CellContext`y0^2 - 150 
+                 Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                   500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                   1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                   900 $CellContext`x0^4 $CellContext`y0^2 - 
+                   639 $CellContext`y0^4 - 
+                   540 $CellContext`x0^2 $CellContext`y0^4 - 
+                   108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1] + 
+                 25 Root[
+                    900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                    500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 
+                    1]^2 + ((-300) $CellContext`x0 + 
+                   100 $CellContext`x0 
+                    Root[900 - 2220 $CellContext`x0^2 + 
+                    1825 $CellContext`x0^4 - 500 $CellContext`x0^6 - 
+                    660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1]) # + (60 + 
+                   100 $CellContext`x0^2 + 60 $CellContext`y0^2 - 20 
+                   Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                    500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                    1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                    900 $CellContext`x0^4 $CellContext`y0^2 - 
+                    639 $CellContext`y0^4 - 
+                    540 $CellContext`x0^2 $CellContext`y0^4 - 
+                    108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                    650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                    240 $CellContext`x0^2 $CellContext`y0^2 + 
+                    90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                    25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                    30 $CellContext`x0^2 $CellContext`y0^2 + 
+                    9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                    12 $CellContext`y0^2) #^3 + 4 #^4& , 1]) #^2 - 
+                 40 $CellContext`x0 #^3 + 4 #^4& , 1]^2 + 
+               Root[900 - 2220 $CellContext`x0^2 + 1825 $CellContext`x0^4 - 
+                 500 $CellContext`x0^6 - 660 $CellContext`y0^2 + 
+                 1650 $CellContext`x0^2 $CellContext`y0^2 - 
+                 900 $CellContext`x0^4 $CellContext`y0^2 - 
+                 639 $CellContext`y0^4 - 
+                 540 $CellContext`x0^2 $CellContext`y0^4 - 
+                 108 $CellContext`y0^6 + (-960 + 1580 $CellContext`x0^2 - 
+                   650 $CellContext`x0^4 + 12 $CellContext`y0^2 - 
+                   240 $CellContext`x0^2 $CellContext`y0^2 + 
+                   90 $CellContext`y0^4) # + (376 - 340 $CellContext`x0^2 + 
+                   25 $CellContext`x0^4 + 84 $CellContext`y0^2 + 
+                   30 $CellContext`x0^2 $CellContext`y0^2 + 
+                   9 $CellContext`y0^4) #^2 + (-64 + 20 $CellContext`x0^2 - 
+                   12 $CellContext`y0^2) #^3 + 4 #^4& , 1]], 
+             Or[
+              And[$CellContext`x0 == (-2)/Sqrt[5], 
+               Inequality[
+               0, Less, $CellContext`y0, Less, Sqrt[3/5] 
+                Sqrt[5 - $CellContext`x0^2]]], 
+              
+              And[$CellContext`x0 == (-2)/Sqrt[
+                5], $CellContext`y0 < -(Sqrt[3/5] 
+                 Sqrt[5 - $CellContext`x0^2])], 
+              And[$CellContext`x0 >= Sqrt[5], $CellContext`y0 < 0], 
+              And[
+               
+               Inequality[(-2)/Sqrt[5], Less, $CellContext`x0, Less, 2/Sqrt[
+                5]], 
+               Inequality[
+               0, Less, $CellContext`y0, Less, Sqrt[3/5] 
+                Sqrt[5 - $CellContext`x0^2]]], 
+              And[
+               
+               Inequality[(-2)/Sqrt[5], Less, $CellContext`x0, Less, 2/Sqrt[
+                5]], $CellContext`y0 < -(Sqrt[3/5] 
+                 Sqrt[5 - $CellContext`x0^2])], 
+              And[
+               Inequality[2/Sqrt[5], LessEqual, $CellContext`x0, Less, 
+                Sqrt[5]], 
+               Inequality[
+               0, Less, $CellContext`y0, Less, Sqrt[3/5] 
+                Sqrt[5 - $CellContext`x0^2]]], 
+              And[
+               Inequality[2/Sqrt[5], LessEqual, $CellContext`x0, Less, 
+                Sqrt[
+                5]], $CellContext`y0 < -(Sqrt[3/5] 
+                 Sqrt[5 - $CellContext`x0^2])], 
+              And[
+               
+               Inequality[-Sqrt[5], Less, $CellContext`x0, Less, (-2)/Sqrt[
+                5]], 
+               Inequality[
+               0, Less, $CellContext`y0, Less, Sqrt[3/5] 
+                Sqrt[5 - $CellContext`x0^2]]], 
+              And[
+               
+               Inequality[-Sqrt[5], Less, $CellContext`x0, Less, (-2)/Sqrt[
+                5]], $CellContext`y0 < -(Sqrt[3/5] 
+                 Sqrt[5 - $CellContext`x0^2])], 
+              And[$CellContext`x0 <= -Sqrt[5], $CellContext`y0 < 0]]}}, (
+            3 $CellContext`y0 - Sqrt[3] 
+            Sqrt[15 - 5 $CellContext`y0^2 - 2 Sqrt[15] 
+              Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))] + 
+              6 $CellContext`x0 
+               Root[225 + 1125 $CellContext`x0^2 - 1275 $CellContext`y0^2 - 
+                 375 $CellContext`x0^2 $CellContext`y0^2 + 
+                 400 $CellContext`y0^4 - 150 Sqrt[15] 
+                 Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))] + 
+                 200 Sqrt[15] $CellContext`y0^2 
+                  Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))] + (
+                   450 $CellContext`x0 - 
+                   600 $CellContext`x0 $CellContext`y0^2 - 150 
+                   Sqrt[15] $CellContext`x0 
+                   Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))]) # + \
+(-90 + 225 $CellContext`x0^2 + 255 $CellContext`y0^2 + 
+                   30 Sqrt[15] 
+                    Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))]) #^2 - 
+                 90 $CellContext`x0 #^3 + 9 #^4& , 1] - 3 
+              Root[225 + 1125 $CellContext`x0^2 - 1275 $CellContext`y0^2 - 
+                 375 $CellContext`x0^2 $CellContext`y0^2 + 
+                 400 $CellContext`y0^4 - 150 Sqrt[15] 
+                 Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))] + 
+                 200 Sqrt[15] $CellContext`y0^2 
+                  Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))] + (
+                   450 $CellContext`x0 - 
+                   600 $CellContext`x0 $CellContext`y0^2 - 150 
+                   Sqrt[15] $CellContext`x0 
+                   Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))]) # + \
+(-90 + 225 $CellContext`x0^2 + 255 $CellContext`y0^2 + 
+                   30 Sqrt[15] 
+                    Sqrt[-($CellContext`x0^2 (-3 + $CellContext`y0^2))]) #^2 - 
+                 90 $CellContext`x0 #^3 + 9 #^4& , 1]^2])/3]}}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.8570844831760674`*^9, {3.857084530615984*^9, 3.857084555390422*^9}, {
+   3.857084838758054*^9, 3.8570848536441727`*^9}, 3.8570848946506653`*^9, {
+   3.857085016434659*^9, 3.857085031915757*^9}, {3.857085168974372*^9, 
+   3.8570851853416452`*^9}, 3.857085450003962*^9, 3.857085571710815*^9, {
+   3.857086000247919*^9, 3.8570860122818203`*^9}, {3.857086096362887*^9, 
+   3.8570861263106327`*^9}, 3.857086909508012*^9, {3.85760462972987*^9, 
+   3.857604658850741*^9}, 3.8576048705660553`*^9, 3.857605049544146*^9},
+ CellLabel->
+  "Out[191]=",ExpressionUUID->"e019def3-d8f4-405c-b3b7-9921cca13574"]
+}, Open  ]]
+},
+WindowSize->{1920, 1052},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+PrivateNotebookOptions->{"CloudPublishPath"->"/Published/locators.nb"},
+Magnification:>2. Inherited,
+FrontEndVersion->"12.2 for Linux x86 (64-bit) (February 5, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"075b94cb-37fe-491a-bb07-ac10c1c3d4f3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 216, 4, 90, "Input",ExpressionUUID->"2a9b8fa9-ac5b-452b-b723-908426c771c3"],
+Cell[CellGroupData[{
+Cell[799, 28, 6281, 172, 474, "Input",ExpressionUUID->"4f1a49c4-4b68-4840-b733-086897d39b94"],
+Cell[7083, 202, 4138, 86, 1340, "Output",ExpressionUUID->"9e26a975-e305-4445-be6a-16c39194d809"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11258, 293, 7326, 205, 1522, "Input",ExpressionUUID->"d6dc4764-21bb-487b-a940-3053580f17fe"],
+Cell[18587, 500, 5876, 116, 908, "Output",ExpressionUUID->"a12b1b26-400f-46a9-8507-5f178a571c26"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24500, 621, 3608, 97, 593, "Input",ExpressionUUID->"6bd4bae8-9f04-460c-9245-043dd351caeb"],
+Cell[28111, 720, 3983, 74, 894, "Output",ExpressionUUID->"de82ca43-e3c3-4898-8e76-2f03369b6210"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32131, 799, 7175, 156, 2110, "Input",ExpressionUUID->"9268499c-7cb8-406a-b4c4-6b8372005bfe"],
+Cell[39309, 957, 39076, 695, 906, "Output",ExpressionUUID->"e019def3-d8f4-405c-b3b7-9921cca13574"]
+}, Open  ]]
+}
+]
+*)
+
