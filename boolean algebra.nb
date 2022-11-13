@@ -1,0 +1,196 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5850,        186]
+NotebookOptionsPosition[      4627,        156]
+NotebookOutlinePosition[      5022,        172]
+CellTagsIndexPosition[      4979,        169]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"output", "=", 
+   RowBox[{
+    RowBox[{"Not", "[", 
+     RowBox[{
+      RowBox[{"Not", "[", 
+       RowBox[{
+        RowBox[{"Not", "[", 
+         SubscriptBox["i", "1"], "]"}], "||", 
+        RowBox[{"Not", "[", 
+         SubscriptBox["i", "2"], "]"}]}], "]"}], "||", 
+      RowBox[{"Not", "[", 
+       SubscriptBox["i", "1"], "]"}]}], "]"}], "||", 
+    RowBox[{"Not", "[", 
+     RowBox[{
+      RowBox[{"Not", "[", 
+       RowBox[{
+        RowBox[{"Not", "[", 
+         SubscriptBox["i", "1"], "]"}], "||", 
+        RowBox[{"Not", "[", 
+         SubscriptBox["i", "2"], "]"}]}], "]"}], "||", 
+      RowBox[{"Not", "[", 
+       SubscriptBox["i", "2"], "]"}]}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.874447466802978*^9, 3.87444756188725*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"027479e2-aff7-407a-9cca-32936ba32738"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"output", "//", "Simplify"}]], "Input",
+ CellChangeTimes->{{3.874447563728137*^9, 3.8744475731397343`*^9}, {
+  3.874447640672611*^9, 3.874447641412654*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"199da4ed-79ac-4ae1-a937-20c5bbb29e24"],
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["i", "1"], "\[Xor]", 
+  SubscriptBox["i", "2"]}]], "Output",
+ CellChangeTimes->{3.874447573302905*^9, 3.8744476415813837`*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"c3cd678d-36a1-4b93-87d4-266d651a191c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LogicalExpand", "[", 
+  RowBox[{
+   SubscriptBox["i", "1"], "\[Xor]", 
+   SubscriptBox["i", "2"]}], "]"}]], "Input",
+ CellChangeTimes->{{3.87444767037744*^9, 3.8744476723654013`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"9bd2cf41-3d9e-4bc5-ab31-d0d58a364e47"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"!", 
+     SubscriptBox["i", "1"]}], "&&", 
+    SubscriptBox["i", "2"]}], ")"}], "||", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"!", 
+     SubscriptBox["i", "2"]}], "&&", 
+    SubscriptBox["i", "1"]}], ")"}]}]], "Output",
+ CellChangeTimes->{3.874447672845544*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"a43a6b2e-6ef5-4177-91c5-a28f13f52450"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TraditionalForm", "[", "output", "]"}]], "Input",
+ CellChangeTimes->{{3.874447676960802*^9, 3.874447679193177*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"0521b550-0c89-4e9f-8f54-a691b5ed0b87"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"\[Not]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Not]", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"\[Not]", 
+          SubscriptBox["i", "1"]}], "\[Or]", 
+         RowBox[{"\[Not]", 
+          SubscriptBox["i", "2"]}]}], ")"}]}], "\[Or]", 
+      RowBox[{"\[Not]", 
+       SubscriptBox["i", "1"]}]}], ")"}]}], "\[Or]", 
+   RowBox[{"\[Not]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Not]", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"\[Not]", 
+          SubscriptBox["i", "1"]}], "\[Or]", 
+         RowBox[{"\[Not]", 
+          SubscriptBox["i", "2"]}]}], ")"}]}], "\[Or]", 
+      RowBox[{"\[Not]", 
+       SubscriptBox["i", "2"]}]}], ")"}]}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.874447679346002*^9},
+ CellLabel->
+  "Out[13]//TraditionalForm=",ExpressionUUID->"c28cc5c0-9e3f-40d9-86cf-\
+97926fc0c156"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["i", "1"], "\[Or]", 
+     SubscriptBox["i", "2"]}], ")"}], "\[And]", 
+   RowBox[{"(", 
+    RowBox[{"\[Not]", 
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["i", "1"], "\[And]", 
+       SubscriptBox["i", "2"]}], ")"}]}], ")"}]}], "//", 
+  "Simplify"}]], "Input",
+ CellChangeTimes->{{3.8744477460772867`*^9, 3.874447796209322*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"ecac6d2b-a5c3-4c30-ba3c-634438ceeea6"],
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["i", "1"], "\[Xor]", 
+  SubscriptBox["i", "2"]}]], "Output",
+ CellChangeTimes->{3.8744477963561983`*^9},
+ CellLabel->"Out[16]=",ExpressionUUID->"6dd52f57-717f-470c-9625-529b8df1a988"]
+}, Open  ]]
+},
+WindowSize->{960, 582},
+WindowMargins->{{0, Automatic}, {-0.75, Automatic}},
+FrontEndVersion->"13.0 for Linux x86 (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"52624e6c-26be-4d20-9590-11afc6f0e36e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 866, 25, 29, "Input",ExpressionUUID->"027479e2-aff7-407a-9cca-32936ba32738"],
+Cell[CellGroupData[{
+Cell[1449, 49, 257, 4, 29, "Input",ExpressionUUID->"199da4ed-79ac-4ae1-a937-20c5bbb29e24"],
+Cell[1709, 55, 243, 5, 33, "Output",ExpressionUUID->"c3cd678d-36a1-4b93-87d4-266d651a191c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1989, 65, 286, 6, 29, "Input",ExpressionUUID->"9bd2cf41-3d9e-4bc5-ab31-d0d58a364e47"],
+Cell[2278, 73, 406, 13, 33, "Output",ExpressionUUID->"a43a6b2e-6ef5-4177-91c5-a28f13f52450"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2721, 91, 218, 3, 29, "Input",ExpressionUUID->"0521b550-0c89-4e9f-8f54-a691b5ed0b87"],
+Cell[2942, 96, 908, 30, 46, "Output",ExpressionUUID->"c28cc5c0-9e3f-40d9-86cf-97926fc0c156"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3887, 131, 499, 15, 29, "Input",ExpressionUUID->"ecac6d2b-a5c3-4c30-ba3c-634438ceeea6"],
+Cell[4389, 148, 222, 5, 33, "Output",ExpressionUUID->"6dd52f57-717f-470c-9625-529b8df1a988"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
