@@ -1,0 +1,1168 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     50454,       1160]
+NotebookOptionsPosition[     48387,       1118]
+NotebookOutlinePosition[     48778,       1134]
+CellTagsIndexPosition[     48735,       1131]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\"\<`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.888297911865728*^9, 3.8882979135275583`*^9}},
+ CellLabel->
+  "In[191]:=",ExpressionUUID->"a076ab78-afae-4b62-8a30-cb3c7318d69e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"range", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"DateObject", "[", 
+      RowBox[{"DateValue", "[", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Year\>\"", ",", "\"\<Month\>\"", ",", "\"\<Day\>\""}], 
+        "}"}], "]"}], "]"}], ",", "Now"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"range", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"UnixTime", "[", "#", "]"}], "*", "1000"}], "&"}], ")"}], "/@",
+     "range"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.888305839935536*^9, 3.8883058625365973`*^9}, {
+  3.88830594435835*^9, 3.8883059461486464`*^9}},
+ CellLabel->
+  "In[192]:=",ExpressionUUID->"306db877-8e08-4ccd-81b8-05847ae3ea55"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{
+    RowBox[{"Developer`ReadRawJSONString", "/@", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+      "\"\</home/bczhc/xdo-rec/2023-03-20 12:50:37\>\"", ",", 
+       "\"\<List\>\""}], "]"}]}], "//", "Parallelize"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.888305729376367*^9, 3.888305737607527*^9}},
+ CellLabel->
+  "In[194]:=",ExpressionUUID->"daee14d7-d58d-4030-a43b-523529222499"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{"data", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"range", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "<=", 
+       RowBox[{"#", "[", "\"\<time\>\"", "]"}], "<=", 
+       RowBox[{"range", "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}], "&"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.888305884394288*^9, 3.888305904822742*^9}},
+ CellLabel->
+  "In[195]:=",ExpressionUUID->"7d15915b-16ed-4ea9-9e8e-e1c1383ae3f4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"plotEvent", "[", "type_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "plotData", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plotData", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"FromUnixTime", "@", 
+          RowBox[{"#", "[", "\"\<time\>\"", "]"}]}], "&"}], "/@", 
+        RowBox[{"Select", "[", 
+         RowBox[{"data", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"#", "[", "\"\<event\>\"", "]"}], "[", "\"\<type\>\"", 
+             "]"}], "==", "type"}], "&"}]}], "]"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"DateHistogram", "[", 
+       RowBox[{"plotData", ",", "\"\<Hour\>\"", ",", 
+        RowBox[{"DateReduction", "->", "\"\<Day\>\""}]}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8883056068479347`*^9, 3.888305642308173*^9}, {
+  3.888305674778441*^9, 3.88830567600782*^9}},
+ CellLabel->
+  "In[196]:=",ExpressionUUID->"5fc0db2d-caab-4e51-8cba-b4f5cbbec203"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"plotEvent", "[", "\"\<MouseMotion\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.888305645850629*^9, 3.888305649557*^9}},
+ CellLabel->
+  "In[197]:=",ExpressionUUID->"f0d5225d-4f2a-41ca-a32a-9308f4b49a8e"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+    Opacity[0.518], Thickness[Small]}], {}, 
+    {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+     Opacity[0.518], Thickness[Small]}], 
+     RectangleBox[{0., 0}, {3600., 15706.},
+      RoundingRadius->0], RectangleBox[{3600., 0}, {7200., 15693.},
+      RoundingRadius->0], RectangleBox[{7200., 0}, {10800., 13311.},
+      RoundingRadius->0], RectangleBox[{10800., 0}, {14400., 13278.},
+      RoundingRadius->0], RectangleBox[{14400., 0}, {18000., 15881.},
+      RoundingRadius->0], RectangleBox[{18000., 0}, {21600., 12484.},
+      RoundingRadius->0], RectangleBox[{21600., 0}, {25200., 11805.},
+      RoundingRadius->0], RectangleBox[{25200., 0}, {28800., 13063.},
+      RoundingRadius->0], RectangleBox[{28800., 0}, {32400., 11840.},
+      RoundingRadius->0], RectangleBox[{32400., 0}, {36000., 12964.},
+      RoundingRadius->0], RectangleBox[{36000., 0}, {39600., 12724.},
+      RoundingRadius->0], RectangleBox[{39600., 0}, {43200., 11538.},
+      RoundingRadius->0], RectangleBox[{43200., 0}, {46800., 14126.},
+      RoundingRadius->0], RectangleBox[{46800., 0}, {50400., 15114.},
+      RoundingRadius->0], RectangleBox[{50400., 0}, {54000., 13251.},
+      RoundingRadius->0], RectangleBox[{54000., 0}, {57600., 13680.},
+      RoundingRadius->0], RectangleBox[{57600., 0}, {61200., 14663.},
+      RoundingRadius->0], RectangleBox[{61200., 0}, {64800., 13290.},
+      RoundingRadius->0], RectangleBox[{64800., 0}, {68400., 14898.},
+      RoundingRadius->0], RectangleBox[{68400., 0}, {72000., 15571.},
+      RoundingRadius->0], RectangleBox[{72000., 0}, {75600., 11383.},
+      RoundingRadius->0], RectangleBox[{75600., 0}, {79200., 14080.},
+      RoundingRadius->0], RectangleBox[{79200., 0}, {82800., 14665.},
+      RoundingRadius->0], RectangleBox[{82800., 0}, {86400., 15181.},
+      RoundingRadius->
+       0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-1728., 0},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {"Hour", ":", "Minute"}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Charting`getDateTicks[
+     Automatic, {"Hour", ":", "Minute"}, 
+      (Map[DateList, {
+        SlotSequence[1]}]& )[
+       SlotSequence[1]], None, 6, {{0.01, 0}, {0.01, 0}}, None]& }},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{0, 86400}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->FrontEndValueCache[{Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {"Hour", ":", "Minute"}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Automatic}, {{{-3600., 
+       FormBox["\"23:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      14400., 
+       FormBox["\"04:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      32400., 
+       FormBox["\"09:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      50400., 
+       FormBox["\"14:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      68400., 
+       FormBox["\"19:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      86400., 
+       FormBox["\"00:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      104400., 
+       FormBox["\"05:00\"", TraditionalForm], {
+       0, 0.006666666666666666}}, {-3600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {0., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {7200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {10800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {14400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {18000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {21600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {25200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {28800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {32400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {36000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {39600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {43200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {46800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {50400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {54000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {57600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {61200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {64800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {68400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {72000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {75600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {79200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {82800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {86400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}}, Automatic}]]], "Output",
+ CellChangeTimes->{{3.888305649886363*^9, 3.888305679552277*^9}, 
+   3.888305779660769*^9, 3.888305929710444*^9, 3.888305993485791*^9},
+ CellLabel->
+  "Out[197]=",ExpressionUUID->"e2512644-b3e4-4b0b-ae95-9b7dbdbb74e7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"plotEvent", "[", "\"\<KeyPress\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.888305650687108*^9, 3.8883056837268333`*^9}},
+ CellLabel->
+  "In[198]:=",ExpressionUUID->"00ff64f3-616f-42aa-b9f1-9446199c29a2"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+    Opacity[0.518], Thickness[Small]}], {}, 
+    {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+     Opacity[0.518], Thickness[Small]}], 
+     RectangleBox[{0., 0}, {3600., 1189.},
+      RoundingRadius->0], RectangleBox[{3600., 0}, {7200., 1161.},
+      RoundingRadius->0], RectangleBox[{7200., 0}, {10800., 1286.},
+      RoundingRadius->0], RectangleBox[{10800., 0}, {14400., 1269.},
+      RoundingRadius->0], RectangleBox[{14400., 0}, {18000., 1142.},
+      RoundingRadius->0], RectangleBox[{18000., 0}, {21600., 1243.},
+      RoundingRadius->0], RectangleBox[{21600., 0}, {25200., 1197.},
+      RoundingRadius->0], RectangleBox[{25200., 0}, {28800., 1142.},
+      RoundingRadius->0], RectangleBox[{28800., 0}, {32400., 1165.},
+      RoundingRadius->0], RectangleBox[{32400., 0}, {36000., 1405.},
+      RoundingRadius->0], RectangleBox[{36000., 0}, {39600., 1293.},
+      RoundingRadius->0], RectangleBox[{39600., 0}, {43200., 1204.},
+      RoundingRadius->0], RectangleBox[{43200., 0}, {46800., 1117.},
+      RoundingRadius->0], RectangleBox[{46800., 0}, {50400., 1088.},
+      RoundingRadius->0], RectangleBox[{50400., 0}, {54000., 1154.},
+      RoundingRadius->0], RectangleBox[{54000., 0}, {57600., 1103.},
+      RoundingRadius->0], RectangleBox[{57600., 0}, {61200., 1115.},
+      RoundingRadius->0], RectangleBox[{61200., 0}, {64800., 1163.},
+      RoundingRadius->0], RectangleBox[{64800., 0}, {68400., 1184.},
+      RoundingRadius->0], RectangleBox[{68400., 0}, {72000., 1159.},
+      RoundingRadius->0], RectangleBox[{72000., 0}, {75600., 1103.},
+      RoundingRadius->0], RectangleBox[{75600., 0}, {79200., 1164.},
+      RoundingRadius->0], RectangleBox[{79200., 0}, {82800., 1083.},
+      RoundingRadius->0], RectangleBox[{82800., 0}, {86400., 1042.},
+      RoundingRadius->
+       0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-1728., 0},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {"Hour", ":", "Minute"}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Charting`getDateTicks[
+     Automatic, {"Hour", ":", "Minute"}, 
+      (Map[DateList, {
+        SlotSequence[1]}]& )[
+       SlotSequence[1]], None, 6, {{0.01, 0}, {0.01, 0}}, None]& }},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{0, 86400}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->FrontEndValueCache[{Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {"Hour", ":", "Minute"}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Automatic}, {{{-3600., 
+       FormBox["\"23:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      14400., 
+       FormBox["\"04:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      32400., 
+       FormBox["\"09:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      50400., 
+       FormBox["\"14:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      68400., 
+       FormBox["\"19:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      86400., 
+       FormBox["\"00:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      104400., 
+       FormBox["\"05:00\"", TraditionalForm], {
+       0, 0.006666666666666666}}, {-3600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {0., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {7200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {10800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {14400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {18000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {21600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {25200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {28800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {32400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {36000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {39600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {43200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {46800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {50400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {54000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {57600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {61200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {64800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {68400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {72000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {75600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {79200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {82800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {86400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}}, Automatic}]]], "Output",
+ CellChangeTimes->{{3.888305660681128*^9, 3.888305684095212*^9}, 
+   3.8883057825168667`*^9, 3.888305929762518*^9, 3.888305996358725*^9},
+ CellLabel->
+  "Out[198]=",ExpressionUUID->"2397667a-0226-4ee7-b469-06088465bc81"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"plotEvent", "[", "\"\<Button\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.888305684920004*^9, 3.8883056869095583`*^9}},
+ CellLabel->
+  "In[199]:=",ExpressionUUID->"f8e5f443-8a6a-4e60-82dd-6dc54015fb4b"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+    Opacity[0.518], Thickness[Small]}], {}, 
+    {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+     Opacity[0.518], Thickness[Small]}], RectangleBox[{0., 0}, {3600., 88.},
+      RoundingRadius->0], RectangleBox[{3600., 0}, {7200., 83.},
+      RoundingRadius->0], RectangleBox[{7200., 0}, {10800., 75.},
+      RoundingRadius->0], RectangleBox[{10800., 0}, {14400., 69.},
+      RoundingRadius->0], RectangleBox[{14400., 0}, {18000., 76.},
+      RoundingRadius->0], RectangleBox[{18000., 0}, {21600., 63.},
+      RoundingRadius->0], RectangleBox[{21600., 0}, {25200., 66.},
+      RoundingRadius->0], RectangleBox[{25200., 0}, {28800., 70.},
+      RoundingRadius->0], RectangleBox[{28800., 0}, {32400., 70.},
+      RoundingRadius->0], RectangleBox[{32400., 0}, {36000., 59.},
+      RoundingRadius->0], RectangleBox[{36000., 0}, {39600., 65.},
+      RoundingRadius->0], RectangleBox[{39600., 0}, {43200., 52.},
+      RoundingRadius->0], RectangleBox[{43200., 0}, {46800., 80.},
+      RoundingRadius->0], RectangleBox[{46800., 0}, {50400., 86.},
+      RoundingRadius->0], RectangleBox[{50400., 0}, {54000., 74.},
+      RoundingRadius->0], RectangleBox[{54000., 0}, {57600., 70.},
+      RoundingRadius->0], RectangleBox[{57600., 0}, {61200., 90.},
+      RoundingRadius->0], RectangleBox[{61200., 0}, {64800., 76.},
+      RoundingRadius->0], RectangleBox[{64800., 0}, {68400., 96.},
+      RoundingRadius->0], RectangleBox[{68400., 0}, {72000., 91.},
+      RoundingRadius->0], RectangleBox[{72000., 0}, {75600., 82.},
+      RoundingRadius->0], RectangleBox[{75600., 0}, {79200., 80.},
+      RoundingRadius->0], RectangleBox[{79200., 0}, {82800., 73.},
+      RoundingRadius->0], RectangleBox[{82800., 0}, {86400., 82.},
+      RoundingRadius->
+       0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-1728., 0},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {"Hour", ":", "Minute"}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Charting`getDateTicks[
+     Automatic, {"Hour", ":", "Minute"}, 
+      (Map[DateList, {
+        SlotSequence[1]}]& )[
+       SlotSequence[1]], None, 6, {{0.01, 0}, {0.01, 0}}, None]& }},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{0, 86400}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->FrontEndValueCache[{Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {"Hour", ":", "Minute"}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Automatic}, {{{-3600., 
+       FormBox["\"23:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      14400., 
+       FormBox["\"04:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      32400., 
+       FormBox["\"09:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      50400., 
+       FormBox["\"14:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      68400., 
+       FormBox["\"19:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      86400., 
+       FormBox["\"00:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      104400., 
+       FormBox["\"05:00\"", TraditionalForm], {
+       0, 0.006666666666666666}}, {-3600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {0., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {7200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {10800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {14400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {18000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {21600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {25200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {28800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {32400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {36000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {39600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {43200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {46800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {50400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {54000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {57600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {61200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {64800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {68400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {72000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {75600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {79200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {82800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {86400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}}, Automatic}]]], "Output",
+ CellChangeTimes->{3.888305687160606*^9, 3.8883057834006147`*^9, 
+  3.88830592980805*^9, 3.888305997210297*^9},
+ CellLabel->
+  "Out[199]=",ExpressionUUID->"adf362c8-0864-4f2e-8a2f-49b4c6b65f2f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"plotEvent", "[", "\"\<MouseWheel\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8883056880179787`*^9, 3.8883056923329163`*^9}},
+ CellLabel->
+  "In[200]:=",ExpressionUUID->"ad1ab65f-ba63-4520-a6df-dd8c4b8b7980"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+    Opacity[0.518], Thickness[Small]}], {}, 
+    {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+     Opacity[0.518], Thickness[Small]}], RectangleBox[{0., 0}, {3600., 464.},
+      RoundingRadius->0], RectangleBox[{3600., 0}, {7200., 404.},
+      RoundingRadius->0], RectangleBox[{7200., 0}, {10800., 497.},
+      RoundingRadius->0], RectangleBox[{10800., 0}, {14400., 554.},
+      RoundingRadius->0], RectangleBox[{14400., 0}, {18000., 361.},
+      RoundingRadius->0], RectangleBox[{18000., 0}, {21600., 611.},
+      RoundingRadius->0], RectangleBox[{21600., 0}, {25200., 581.},
+      RoundingRadius->0], RectangleBox[{25200., 0}, {28800., 770.},
+      RoundingRadius->0], RectangleBox[{28800., 0}, {32400., 640.},
+      RoundingRadius->0], RectangleBox[{32400., 0}, {36000., 402.},
+      RoundingRadius->0], RectangleBox[{36000., 0}, {39600., 175.},
+      RoundingRadius->0], RectangleBox[{39600., 0}, {43200., 363.},
+      RoundingRadius->0], RectangleBox[{43200., 0}, {46800., 269.},
+      RoundingRadius->0], RectangleBox[{46800., 0}, {50400., 463.},
+      RoundingRadius->0], RectangleBox[{50400., 0}, {54000., 450.},
+      RoundingRadius->0], RectangleBox[{54000., 0}, {57600., 694.},
+      RoundingRadius->0], RectangleBox[{57600., 0}, {61200., 692.},
+      RoundingRadius->0], RectangleBox[{61200., 0}, {64800., 569.},
+      RoundingRadius->0], RectangleBox[{64800., 0}, {68400., 524.},
+      RoundingRadius->0], RectangleBox[{68400., 0}, {72000., 344.},
+      RoundingRadius->0], RectangleBox[{72000., 0}, {75600., 662.},
+      RoundingRadius->0], RectangleBox[{75600., 0}, {79200., 746.},
+      RoundingRadius->0], RectangleBox[{79200., 0}, {82800., 423.},
+      RoundingRadius->0], RectangleBox[{82800., 0}, {86400., 365.},
+      RoundingRadius->
+       0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-1728., 0},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {"Hour", ":", "Minute"}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Charting`getDateTicks[
+     Automatic, {"Hour", ":", "Minute"}, 
+      (Map[DateList, {
+        SlotSequence[1]}]& )[
+       SlotSequence[1]], None, 6, {{0.01, 0}, {0.01, 0}}, None]& }},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{0, 86400}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->FrontEndValueCache[{Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {"Hour", ":", "Minute"}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Automatic}, {{{-3600., 
+       FormBox["\"23:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      14400., 
+       FormBox["\"04:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      32400., 
+       FormBox["\"09:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      50400., 
+       FormBox["\"14:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      68400., 
+       FormBox["\"19:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      86400., 
+       FormBox["\"00:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      104400., 
+       FormBox["\"05:00\"", TraditionalForm], {
+       0, 0.006666666666666666}}, {-3600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {0., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {7200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {10800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {14400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {18000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {21600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {25200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {28800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {32400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {36000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {39600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {43200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {46800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {50400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {54000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {57600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {61200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {64800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {68400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {72000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {75600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {79200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {82800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {86400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}}, Automatic}]]], "Output",
+ CellChangeTimes->{3.888305692746426*^9, 3.888305785000724*^9, 
+  3.888305929877983*^9, 3.888305998793324*^9},
+ CellLabel->
+  "Out[200]=",ExpressionUUID->"1ca25f07-3521-4dd1-bc54-99ef07d458e0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"plotEvent", "[", "\"\<Selection\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8883057077223377`*^9, 3.888305710936352*^9}},
+ CellLabel->
+  "In[201]:=",ExpressionUUID->"2031d29f-dc72-4c21-a7e8-0da5e7977396"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+    Opacity[0.518], Thickness[Small]}], {}, 
+    {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+     Opacity[0.518], Thickness[Small]}], RectangleBox[{0., 0}, {3600., 30.},
+      RoundingRadius->0], RectangleBox[{3600., 0}, {7200., 26.},
+      RoundingRadius->0], RectangleBox[{7200., 0}, {10800., 24.},
+      RoundingRadius->0], RectangleBox[{10800., 0}, {14400., 26.},
+      RoundingRadius->0], RectangleBox[{14400., 0}, {18000., 36.},
+      RoundingRadius->0], RectangleBox[{18000., 0}, {21600., 36.},
+      RoundingRadius->0], RectangleBox[{21600., 0}, {25200., 28.},
+      RoundingRadius->0], RectangleBox[{25200., 0}, {28800., 40.},
+      RoundingRadius->0], RectangleBox[{28800., 0}, {32400., 31.},
+      RoundingRadius->0], RectangleBox[{32400., 0}, {36000., 22.},
+      RoundingRadius->0], RectangleBox[{36000., 0}, {39600., 31.},
+      RoundingRadius->0], RectangleBox[{39600., 0}, {43200., 28.},
+      RoundingRadius->0], RectangleBox[{43200., 0}, {46800., 31.},
+      RoundingRadius->0], RectangleBox[{46800., 0}, {50400., 29.},
+      RoundingRadius->0], RectangleBox[{50400., 0}, {54000., 30.},
+      RoundingRadius->0], RectangleBox[{54000., 0}, {57600., 26.},
+      RoundingRadius->0], RectangleBox[{57600., 0}, {61200., 20.},
+      RoundingRadius->0], RectangleBox[{61200., 0}, {64800., 23.},
+      RoundingRadius->0], RectangleBox[{64800., 0}, {68400., 66.},
+      RoundingRadius->0], RectangleBox[{68400., 0}, {72000., 23.},
+      RoundingRadius->0], RectangleBox[{72000., 0}, {75600., 20.},
+      RoundingRadius->0], RectangleBox[{75600., 0}, {79200., 23.},
+      RoundingRadius->0], RectangleBox[{79200., 0}, {82800., 20.},
+      RoundingRadius->0], RectangleBox[{82800., 0}, {86400., 38.},
+      RoundingRadius->
+       0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-1728., 0},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {"Hour", ":", "Minute"}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Charting`getDateTicks[
+     Automatic, {"Hour", ":", "Minute"}, 
+      (Map[DateList, {
+        SlotSequence[1]}]& )[
+       SlotSequence[1]], None, 6, {{0.01, 0}, {0.01, 0}}, None]& }},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{0, 86400}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->FrontEndValueCache[{Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {"Hour", ":", "Minute"}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Automatic}, {{{-3600., 
+       FormBox["\"23:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      14400., 
+       FormBox["\"04:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      32400., 
+       FormBox["\"09:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      50400., 
+       FormBox["\"14:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      68400., 
+       FormBox["\"19:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      86400., 
+       FormBox["\"00:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      104400., 
+       FormBox["\"05:00\"", TraditionalForm], {
+       0, 0.006666666666666666}}, {-3600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {0., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {7200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {10800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {14400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {18000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {21600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {25200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {28800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {32400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {36000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {39600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {43200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {46800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {50400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {54000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {57600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {61200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {64800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {68400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {72000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {75600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {79200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {82800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {86400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}}, Automatic}]]], "Output",
+ CellChangeTimes->{3.888305711369368*^9, 3.888305785760994*^9, 
+  3.8883059299251328`*^9, 3.888305999542369*^9},
+ CellLabel->
+  "Out[201]=",ExpressionUUID->"244ba7fd-210c-46e2-9e63-f5432e28b84c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"plotEvent", "[", "\"\<Clipboard\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8883057117997913`*^9, 3.888305714890235*^9}},
+ CellLabel->
+  "In[203]:=",ExpressionUUID->"475ac97d-3566-48bb-b928-1f43bd7e8214"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+    Opacity[0.518], Thickness[Small]}], {}, 
+    {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+     Opacity[0.518], Thickness[Small]}], RectangleBox[{0., 0}, {3600., 8.},
+      RoundingRadius->0], RectangleBox[{3600., 0}, {7200., 10.},
+      RoundingRadius->0], RectangleBox[{7200., 0}, {10800., 5.},
+      RoundingRadius->0], RectangleBox[{10800., 0}, {14400., 7.},
+      RoundingRadius->0], RectangleBox[{14400., 0}, {18000., 5.},
+      RoundingRadius->0], RectangleBox[{18000., 0}, {21600., 5.},
+      RoundingRadius->0], RectangleBox[{21600., 0}, {25200., 6.},
+      RoundingRadius->0], RectangleBox[{25200., 0}, {28800., 7.},
+      RoundingRadius->0], RectangleBox[{28800., 0}, {32400., 9.},
+      RoundingRadius->0], RectangleBox[{32400., 0}, {36000., 2.},
+      RoundingRadius->0], RectangleBox[{36000., 0}, {39600., 6.},
+      RoundingRadius->0], RectangleBox[{39600., 0}, {43200., 3.},
+      RoundingRadius->0], RectangleBox[{43200., 0}, {46800., 5.},
+      RoundingRadius->0], RectangleBox[{46800., 0}, {50400., 9.},
+      RoundingRadius->0], RectangleBox[{50400., 0}, {54000., 7.},
+      RoundingRadius->0], RectangleBox[{54000., 0}, {57600., 6.},
+      RoundingRadius->0], RectangleBox[{57600., 0}, {61200., 3.},
+      RoundingRadius->0], RectangleBox[{61200., 0}, {64800., 5.},
+      RoundingRadius->0], RectangleBox[{64800., 0}, {68400., 7.},
+      RoundingRadius->0], RectangleBox[{68400., 0}, {72000., 8.},
+      RoundingRadius->0], RectangleBox[{72000., 0}, {75600., 5.},
+      RoundingRadius->0], RectangleBox[{75600., 0}, {79200., 6.},
+      RoundingRadius->0], RectangleBox[{79200., 0}, {82800., 6.},
+      RoundingRadius->0], RectangleBox[{82800., 0}, {86400., 12.},
+      RoundingRadius->
+       0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-1728., 0},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {"Hour", ":", "Minute"}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Charting`getDateTicks[
+     Automatic, {"Hour", ":", "Minute"}, 
+      (Map[DateList, {
+        SlotSequence[1]}]& )[
+       SlotSequence[1]], None, 6, {{0.01, 0}, {0.01, 0}}, None]& }},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{0, 86400}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->FrontEndValueCache[{Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {"Hour", ":", "Minute"}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Automatic}, {{{-3600., 
+       FormBox["\"23:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      14400., 
+       FormBox["\"04:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      32400., 
+       FormBox["\"09:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      50400., 
+       FormBox["\"14:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      68400., 
+       FormBox["\"19:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      86400., 
+       FormBox["\"00:00\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      104400., 
+       FormBox["\"05:00\"", TraditionalForm], {
+       0, 0.006666666666666666}}, {-3600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {0., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {7200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {10800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {14400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {18000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {21600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {25200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {28800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {32400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {36000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {39600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {43200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {46800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {50400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {54000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {57600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {61200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {64800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {68400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {72000., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {75600., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {79200., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {82800., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {86400., 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}}, Automatic}]]], "Output",
+ CellChangeTimes->{3.888306030766863*^9},
+ CellLabel->
+  "Out[203]=",ExpressionUUID->"78474586-658e-4103-87f2-86b84ac142fd"]
+}, Open  ]]
+},
+WindowSize->{960, 579},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"d370ab68-7ae6-4d65-b7e7-e8341940d5e2"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 218, 4, 29, "Input",ExpressionUUID->"a076ab78-afae-4b62-8a30-cb3c7318d69e"],
+Cell[779, 26, 739, 22, 51, "Input",ExpressionUUID->"306db877-8e08-4ccd-81b8-05847ae3ea55"],
+Cell[1521, 50, 441, 11, 33, "Input",ExpressionUUID->"daee14d7-d58d-4030-a43b-523529222499"],
+Cell[1965, 63, 517, 14, 29, "Input",ExpressionUUID->"7d15915b-16ed-4ea9-9e8e-e1c1383ae3f4"],
+Cell[2485, 79, 1082, 28, 92, "Input",ExpressionUUID->"5fc0db2d-caab-4e51-8cba-b4f5cbbec203"],
+Cell[CellGroupData[{
+Cell[3592, 111, 226, 4, 29, "Input",ExpressionUUID->"f0d5225d-4f2a-41ca-a32a-9308f4b49a8e"],
+Cell[3821, 117, 7284, 158, 227, "Output",ExpressionUUID->"e2512644-b3e4-4b0b-ae95-9b7dbdbb74e7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11142, 280, 228, 4, 29, "Input",ExpressionUUID->"00ff64f3-616f-42aa-b9f1-9446199c29a2"],
+Cell[11373, 286, 7262, 158, 232, "Output",ExpressionUUID->"2397667a-0226-4ee7-b469-06088465bc81"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18672, 449, 226, 4, 29, "Input",ExpressionUUID->"f8e5f443-8a6a-4e60-82dd-6dc54015fb4b"],
+Cell[18901, 455, 7182, 157, 239, "Output",ExpressionUUID->"adf362c8-0864-4f2e-8a2f-49b4c6b65f2f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26120, 617, 232, 4, 29, "Input",ExpressionUUID->"ad1ab65f-ba63-4520-a6df-dd8c4b8b7980"],
+Cell[26355, 623, 7205, 157, 239, "Output",ExpressionUUID->"1ca25f07-3521-4dd1-bc54-99ef07d458e0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33597, 785, 229, 4, 29, "Input",ExpressionUUID->"2031d29f-dc72-4c21-a7e8-0da5e7977396"],
+Cell[33829, 791, 7183, 157, 239, "Output",ExpressionUUID->"244ba7fd-210c-46e2-9e63-f5432e28b84c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41049, 953, 229, 4, 29, "Input",ExpressionUUID->"475ac97d-3566-48bb-b928-1f43bd7e8214"],
+Cell[41281, 959, 7090, 156, 239, "Output",ExpressionUUID->"78474586-658e-4103-87f2-86b84ac142fd"]
+}, Open  ]]
+}
+]
+*)
+
