@@ -1,0 +1,967 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     41974,        957]
+NotebookOptionsPosition[     40384,        923]
+NotebookOutlinePosition[     40838,        940]
+CellTagsIndexPosition[     40795,        937]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"intItpr", "=", 
+   RowBox[{
+    RowBox[{"Internal`StringToMInteger", "[", "#", "]"}], "&"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8930470612235403`*^9, 3.893047142466175*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"ca742add-3034-411f-8519-085422623003"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"list", "=", 
+  RowBox[{"intItpr", "/@", 
+   RowBox[{"StringSplit", "[", 
+    RowBox[{
+     RowBox[{"Import", "[", 
+      RowBox[{"\"\</tmp/time-list\>\"", ",", "\"\<Text\>\""}], "]"}], ",", 
+     "\"\<\\n\>\""}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.893047145837043*^9, 3.893047212062643*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"acf9701f-dc75-4397-8d78-966621f2bc16"],
+
+Cell[BoxData[
+ TemplateBox[<|"shortenedBoxes" -> TagBox[
+     RowBox[{"{", 
+       RowBox[{
+        "1676204730", ",", "1676204794", ",", "1676205455", ",", "1676205803",
+          ",", "1676205807", ",", "1676205811", ",", "1676205878", ",", 
+         "1676207058", ",", "1676207063", ",", "1676207076", ",", 
+         "1676207567", ",", "1676207572", ",", "1676207593", ",", 
+         "1676207862", ",", "1676207879", ",", "1676207888", ",", 
+         "1676207897", ",", "1676207933", ",", "1676207937", ",", 
+         "1676207949", ",", "1676207975", ",", "1676207980", ",", 
+         "1676208050", ",", "1676208148", ",", "1676209633", ",", 
+         "1676209862", ",", "1676209874", ",", "1676210012", ",", 
+         "1676210624", ",", 
+         TemplateBox[{"13425"}, "OutputSizeLimit`Skeleton"], ",", 
+         "1684056690", ",", "1684056691", ",", "1684056691", ",", 
+         "1684056691", ",", "1684056691", ",", "1684056691", ",", 
+         "1684056691", ",", "1684056701", ",", "1684056712", ",", 
+         "1684056716", ",", "1684056718", ",", "1684056722", ",", 
+         "1684056734", ",", "1684056738", ",", "1684056744", ",", 
+         "1684056748", ",", "1684056750", ",", "1684056751", ",", 
+         "1684057585", ",", "1684058174", ",", "1684058214", ",", 
+         "1684058219", ",", "1684058225", ",", "1684058227", ",", 
+         "1684058240", ",", "1684058242", ",", "1684058243", ",", 
+         "1684058247", ",", "1684058252"}], "}"}], Short[#, 8]& ], "line" -> 
+   15, "sessionID" -> 27009533545465698512, "byteCount" -> 1045384, "size" -> 
+   8, "stored" -> False, "expr" -> Missing["NotStored"], "wrap" -> 
+   OutputSizeLimit`Defer, "version" -> 1|>,
+  "OutputSizeLimitTemplate"]], "Output",
+ CellChangeTimes->{3.8930472157442703`*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"6798124a-6ea8-47c3-8495-099488881103"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FromUnixTime", "/@", "list"}]], "Input",
+ CellChangeTimes->{{3.893047230780786*^9, 3.8930472328447237`*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"f0940d9f-4cc2-484a-8159-3600fa8e111d"],
+
+Cell[BoxData[
+ TemplateBox[<|"shortenedBoxes" -> TagBox[
+     RowBox[{"{", 
+       RowBox[{
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 20:25:30\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "20", ",", "25", ",", 
+                   "30.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 20:26:34\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "20", ",", "26", ",", 
+                   "34.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 20:37:35\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "20", ",", "37", ",", 
+                   "35.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 20:43:23\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "20", ",", "43", ",", 
+                   "23.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 20:43:27\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "20", ",", "43", ",", 
+                   "27.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 20:43:31\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "20", ",", "43", ",", 
+                   "31.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 20:44:38\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "20", ",", "44", ",", 
+                   "38.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 21:04:18\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "21", ",", "4", ",", 
+                   "18.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 21:04:23\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "21", ",", "4", ",", 
+                   "23.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 21:04:36\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "21", ",", "4", ",", 
+                   "36.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 21:12:47\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "21", ",", "12", ",", 
+                   "47.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 21:12:52\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "21", ",", "12", ",", 
+                   "52.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 21:13:13\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "21", ",", "13", ",", 
+                   "13.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 21:17:42\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "21", ",", "17", ",", 
+                   "42.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 21:17:59\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "21", ",", "17", ",", 
+                   "59.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 21:18:08\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "21", ",", "18", ",", 
+                   "8.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 21:18:17\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "21", ",", "18", ",", 
+                   "17.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 12 Feb 2023 21:18:53\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "2", ",", "12", ",", "21", ",", "18", ",", 
+                   "53.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{"13447"}, "OutputSizeLimit`Skeleton"], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:32:02\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "32", ",", 
+                   "2.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:32:14\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "32", ",", 
+                   "14.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:32:18\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "32", ",", 
+                   "18.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:32:24\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "32", ",", 
+                   "24.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:32:28\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "32", ",", 
+                   "28.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:32:30\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "32", ",", 
+                   "30.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:32:31\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "32", ",", 
+                   "31.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:46:25\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "46", ",", 
+                   "25.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:56:14\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "56", ",", 
+                   "14.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:56:54\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "56", ",", 
+                   "54.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:56:59\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "56", ",", 
+                   "59.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:57:05\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "57", ",", 
+                   "5.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:57:07\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "57", ",", 
+                   "7.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:57:20\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "57", ",", 
+                   "20.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:57:22\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "57", ",", 
+                   "22.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:57:23\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "57", ",", 
+                   "23.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:57:27\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "57", ",", 
+                   "27.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False], ",", 
+         TemplateBox[{
+           RowBox[{"\"Sun 14 May 2023 17:57:32\"", 
+             StyleBox[
+              
+              RowBox[{"\"GMT\"", "\[InvisibleSpace]", "+", 
+                "\[InvisibleSpace]", 
+                StyleBox["8", NumberMarks -> False, StripOnInput -> False]}], 
+              FontColor -> GrayLevel[0.5]]}], 
+           RowBox[{"DateObject", "[", 
+             RowBox[{
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "2023", ",", "5", ",", "14", ",", "17", ",", "57", ",", 
+                   "32.`"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+               ",", "8.`"}], "]"}]}, "DateObject", Editable -> False]}], 
+       "}"}], Short[#, 16]& ], "line" -> 19, "sessionID" -> 
+   27009533545465698512, "byteCount" -> 5304008, "size" -> 16, "stored" -> 
+   False, "expr" -> Missing["NotStored"], "wrap" -> OutputSizeLimit`Defer, 
+   "version" -> 1|>,
+  "OutputSizeLimitTemplate"]], "Output",
+ CellChangeTimes->{3.893047244809308*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"185efe7a-8d53-48f4-9a9a-a43e90a4fb9a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dateList", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{"%19", ",", 
+     RowBox[{
+      RowBox[{"Between", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          TemplateBox[{
+            RowBox[{"\"Mon 1 May 2023\""}], 
+            RowBox[{"DateObject", "[", 
+              RowBox[{
+                RowBox[{"{", 
+                  RowBox[{"2023", ",", "5", ",", "1"}], "}"}], ",", 
+                "\"Day\""}], "]"}]},
+           "DateObject",
+           Editable->False], ",", "Now"}], "}"}]}], "]"}], "&"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.893049025263729*^9, 3.893049030337822*^9}, {
+  3.893049067496904*^9, 3.893049104399643*^9}, {3.893049264739827*^9, 
+  3.893049265422654*^9}},
+ CellLabel->"In[38]:=",ExpressionUUID->"bf492360-7367-4128-80cd-9cd059e5bc8c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LessEqual", "nordol", 
+   "\"\\!\\(\\*RowBox[{\\\"DateObject\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\
+\", RowBox[{\\\"2023\\\", \\\",\\\", \\\"5\\\", \\\",\\\", \\\"1\\\"}], \\\"}\
+\\\"}], \\\",\\\", \\\"\\\\\\\"Day\\\\\\\"\\\"}], \\\"]\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"DateObject\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{\\\"2023\\\", \\\",\\\", \\\"5\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+\\\"6\\\", \\\",\\\", \\\"47\\\", \\\",\\\", \\\"43.`\\\"}], \\\"}\\\"}], \
+\\\",\\\", \\\"\\\\\\\"Instant\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Gregorian\\\\\\\"\\\", \\\",\\\", \\\"8.`\\\"}], \\\"]\\\"}]\\) \
+cannot be compared because they are overlapping.\"", 2, 38, 39, 
+   27009533545465698512, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8930491062367477`*^9, 3.8930492784415894`*^9},
+ CellLabel->
+  "During evaluation of \
+In[38]:=",ExpressionUUID->"1264e859-c1d3-4a0f-aee4-2dfe74dbd919"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LessEqual", "nordol", 
+   "\"\\!\\(\\*RowBox[{\\\"DateObject\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\
+\", RowBox[{\\\"2023\\\", \\\",\\\", \\\"5\\\", \\\",\\\", \\\"1\\\"}], \\\"}\
+\\\"}], \\\",\\\", \\\"\\\\\\\"Day\\\\\\\"\\\"}], \\\"]\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"DateObject\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{\\\"2023\\\", \\\",\\\", \\\"5\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+\\\"6\\\", \\\",\\\", \\\"51\\\", \\\",\\\", \\\"53.`\\\"}], \\\"}\\\"}], \
+\\\",\\\", \\\"\\\\\\\"Instant\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Gregorian\\\\\\\"\\\", \\\",\\\", \\\"8.`\\\"}], \\\"]\\\"}]\\) \
+cannot be compared because they are overlapping.\"", 2, 38, 40, 
+   27009533545465698512, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8930491062367477`*^9, 3.893049278454261*^9},
+ CellLabel->
+  "During evaluation of \
+In[38]:=",ExpressionUUID->"bb2c3ff5-5669-4a73-940d-a4ef37565de5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LessEqual", "nordol", 
+   "\"\\!\\(\\*RowBox[{\\\"DateObject\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\
+\", RowBox[{\\\"2023\\\", \\\",\\\", \\\"5\\\", \\\",\\\", \\\"1\\\"}], \\\"}\
+\\\"}], \\\",\\\", \\\"\\\\\\\"Day\\\\\\\"\\\"}], \\\"]\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"DateObject\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{\\\"2023\\\", \\\",\\\", \\\"5\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \
+\\\"6\\\", \\\",\\\", \\\"58\\\", \\\",\\\", \\\"21.`\\\"}], \\\"}\\\"}], \
+\\\",\\\", \\\"\\\\\\\"Instant\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Gregorian\\\\\\\"\\\", \\\",\\\", \\\"8.`\\\"}], \\\"]\\\"}]\\) \
+cannot be compared because they are overlapping.\"", 2, 38, 41, 
+   27009533545465698512, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8930491062367477`*^9, 3.8930492784645576`*^9},
+ CellLabel->
+  "During evaluation of \
+In[38]:=",ExpressionUUID->"44f8686a-4d6f-4d07-b79a-a515adcba44c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"LessEqual\\\", \\\"::\\\
+\", \\\"nordol\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 38, 42, 27009533545465698512, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8930491062367477`*^9, 3.893049278474904*^9},
+ CellLabel->
+  "During evaluation of \
+In[38]:=",ExpressionUUID->"fcf37c39-a883-41a8-9ddd-2771b0ec35f2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DateHistogram", "[", 
+  RowBox[{"dateList", ",", 
+   TemplateBox[{"6", "\"h\"", "hours", "\"Hours\""},
+    "Quantity"]}], "]"}]], "Input",
+ CellChangeTimes->{{3.893047883765039*^9, 3.893047886063161*^9}, {
+  3.89304795068853*^9, 3.893048020354137*^9}, {3.893048950646991*^9, 
+  3.893048957278157*^9}, {3.893048989383822*^9, 3.8930489971893167`*^9}, {
+  3.893049110965712*^9, 3.893049137955781*^9}, {3.8930492841068373`*^9, 
+  3.893049285111988*^9}},
+ CellLabel->"In[40]:=",ExpressionUUID->"15ce8aaf-b591-4619-a4f0-fd8041353c14"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+    Opacity[0.34299999999999997`], Thickness[Small]}], {}, 
+    {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+     Opacity[0.34299999999999997`], Thickness[Small]}], 
+     RectangleBox[{3.8920176*^9, 0}, {3.8920392*^9, 2.},
+      RoundingRadius->0], RectangleBox[{3.8920392*^9, 0}, {3.8920608*^9, 9.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8920824*^9, 0}, {3.892104*^9, 134.},
+      RoundingRadius->0], RectangleBox[{3.892104*^9, 0}, {3.8921256*^9, 17.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8921256*^9, 0}, {3.8921472*^9, 27.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8921688*^9, 0}, {3.8921904*^9, 67.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8921904*^9, 0}, {3.892212*^9, 183.},
+      RoundingRadius->0], 
+     RectangleBox[{3.892212*^9, 0}, {3.8922336*^9, 201.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8922552*^9, 0}, {3.8922768*^9, 10.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8922768*^9, 0}, {3.8922984*^9, 80.},
+      RoundingRadius->0], RectangleBox[{3.8922984*^9, 0}, {3.89232*^9, 21.},
+      RoundingRadius->0], RectangleBox[{3.8923632*^9, 0}, {3.8923848*^9, 2.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8923848*^9, 0}, {3.8924064*^9, 19.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8924496*^9, 0}, {3.8924712*^9, 39.},
+      RoundingRadius->0], RectangleBox[{3.8925144*^9, 0}, {3.892536*^9, 42.},
+      RoundingRadius->0], RectangleBox[{3.892536*^9, 0}, {3.8925576*^9, 58.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8925576*^9, 0}, {3.8925792*^9, 37.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8926008*^9, 0}, {3.8926224*^9, 291.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8926224*^9, 0}, {3.892644*^9, 384.},
+      RoundingRadius->0], 
+     RectangleBox[{3.892644*^9, 0}, {3.8926656*^9, 106.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8926872*^9, 0}, {3.8927088*^9, 99.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8927088*^9, 0}, {3.8927304*^9, 163.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8927304*^9, 0}, {3.892752*^9, 118.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8927952*^9, 0}, {3.8928168*^9, 77.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8928168*^9, 0}, {3.8928384*^9, 12.},
+      RoundingRadius->0], RectangleBox[{3.89286*^9, 0}, {3.8928816*^9, 20.},
+      RoundingRadius->0], RectangleBox[{3.892968*^9, 0}, {3.8929896*^9, 61.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8929896*^9, 0}, {3.8930112*^9, 138.},
+      RoundingRadius->0], 
+     RectangleBox[{3.8930544*^9, 0}, {3.893076*^9, 143.},
+      RoundingRadius->
+       0]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{3.891996432*^9, 0},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {Automatic}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Charting`getDateTicks[
+     Automatic, {Automatic}, 
+      (Map[DateList, {
+        SlotSequence[1]}]& )[
+       SlotSequence[1]], None, 6, {{0.01, 0}, {0.01, 0}}, None]& }},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->{778.5, Automatic},
+  PlotRange->{{3.8920176*^9, 3.893076*^9}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->FrontEndValueCache[{Charting`FindScaledTicks[
+      (Charting`getDateTicks[Automatic, {Automatic}, 
+       (Map[DateList, {
+         SlotSequence[1]}]& )[
+        SlotSequence[1]], None, 6, {{0, 0.01}, {0, 0.01}}, Automatic]& )[
+       SlotSequence[1]], {Identity, Identity}]& , Automatic}, {{{3.8924928*^9, 
+       FormBox["\"May 08\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      3.8930976*^9, 
+       FormBox["\"May 15\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      3.8937024*^9, 
+       FormBox["\"May 22\"", TraditionalForm], {0, 0.006666666666666666}}, {
+      3.8920608*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3.8921472*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3.8922336*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3.89232*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3.8924064*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3.8924928*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3.8925792*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3.8926656*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3.892752*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3.8928384*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3.8929248*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3.8930112*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}, {3.8930976*^9, 
+       FormBox[
+        TemplateBox[{0, 0}, "Spacer2"], TraditionalForm], {
+       0, 0.006666666666666666}}}, Automatic}]]], "Output",
+ CellChangeTimes->{{3.8930479802299423`*^9, 3.89304802634674*^9}, {
+   3.893048987293014*^9, 3.893048998594614*^9}, {3.893049112514296*^9, 
+   3.8930491391398077`*^9}, 3.8930492854169283`*^9},
+ CellLabel->"Out[40]=",ExpressionUUID->"8699b727-ba2a-4d5b-a76e-46b668c673e3"]
+}, Open  ]]
+},
+WindowSize->{957., 562.875},
+WindowMargins->{{0, Automatic}, {1.219044510627782, Automatic}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c9645a11-8ef3-4865-b605-2d461724c995"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 295, 7, 29, "Input",ExpressionUUID->"ca742add-3034-411f-8519-085422623003"],
+Cell[CellGroupData[{
+Cell[878, 31, 402, 9, 29, "Input",ExpressionUUID->"acf9701f-dc75-4397-8d78-966621f2bc16"],
+Cell[1283, 42, 1844, 30, 173, "Output",ExpressionUUID->"6798124a-6ea8-47c3-8495-099488881103"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3164, 77, 211, 3, 29, "Input",ExpressionUUID->"f0940d9f-4cc2-484a-8159-3600fa8e111d"],
+Cell[3378, 82, 25816, 587, 348, "Output",ExpressionUUID->"185efe7a-8d53-48f4-9a9a-a43e90a4fb9a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29231, 674, 847, 23, 39, "Input",ExpressionUUID->"bf492360-7367-4128-80cd-9cd059e5bc8c"],
+Cell[30081, 699, 964, 17, 28, "Message",ExpressionUUID->"1264e859-c1d3-4a0f-aee4-2dfe74dbd919"],
+Cell[31048, 718, 962, 17, 28, "Message",ExpressionUUID->"bb2c3ff5-5669-4a73-940d-a4ef37565de5"],
+Cell[32013, 737, 964, 17, 28, "Message",ExpressionUUID->"44f8686a-4d6f-4d07-b79a-a515adcba44c"],
+Cell[32980, 756, 480, 10, 28, "Message",ExpressionUUID->"fcf37c39-a883-41a8-9ddd-2771b0ec35f2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33497, 771, 552, 10, 40, "Input",ExpressionUUID->"15ce8aaf-b591-4619-a4f0-fd8041353c14"],
+Cell[34052, 783, 6316, 137, 488, "Output",ExpressionUUID->"8699b727-ba2a-4d5b-a76e-46b668c673e3"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
