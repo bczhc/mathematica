@@ -1,0 +1,234 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8931,        226]
+NotebookOptionsPosition[      8330,        207]
+NotebookOutlinePosition[      8756,        224]
+CellTagsIndexPosition[      8713,        221]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\"\<`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.895717904758326*^9, 3.8957179062996283`*^9}},
+ CellLabel->"In[94]:=",ExpressionUUID->"bf96b898-5447-4fd6-a775-9e362260780e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Module", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"c2vec", ",", "vz", ",", "z", ",", "vArrow", ",", "arrow"}], 
+    "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"c2vec", "[", "z_", "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Re", "@", "z"}], ",", 
+       RowBox[{"Im", "@", "z"}]}], "}"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"vz", "[", "\[Theta]_", "]"}], ":=", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"\[Pi]", "-", "\[Theta]"}], ")"}], " ", "\[ImaginaryI]"}]]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"z", "[", 
+      RowBox[{"t_", ",", "\[Theta]_"}], "]"}], ":=", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"vz", "[", "\[Theta]", "]"}], " ", "t"}]]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"arrow", "[", 
+      RowBox[{"t_", ",", "\[Theta]_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"startPoint", ",", "vVec"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"startPoint", "=", 
+         RowBox[{"c2vec", "@", 
+          RowBox[{"z", "[", 
+           RowBox[{"t", ",", "\[Theta]"}], "]"}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"vVec", "=", 
+         RowBox[{"c2vec", "[", 
+          RowBox[{
+           RowBox[{"D", "[", 
+            RowBox[{
+             RowBox[{"z", "[", 
+              RowBox[{"tt", ",", "\[Theta]"}], "]"}], ",", "tt"}], "]"}], "/.", 
+           RowBox[{"tt", "->", "t"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Arrow", "[", 
+         RowBox[{"{", 
+          RowBox[{"startPoint", ",", 
+           RowBox[{"startPoint", "+", "vVec"}]}], "}"}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"ParametricPlot", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"c2vec", "@", 
+         RowBox[{"z", "[", 
+          RowBox[{"t", ",", "\[Theta]"}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"t", ",", "0", ",", 
+          RowBox[{"2", "\[Pi]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"PlotRange", "->", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "}"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Prolog", "->", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"arrow", "[", 
+            RowBox[{"0", ",", "\[Theta]"}], "]"}], ",", 
+           RowBox[{"arrow", "[", 
+            RowBox[{
+             FractionBox["\[Pi]", "3"], ",", "\[Theta]"}], "]"}], ",", 
+           RowBox[{"arrow", "[", 
+            RowBox[{
+             FractionBox[
+              RowBox[{"2", " ", "\[Pi]"}], "3"], ",", "\[Theta]"}], "]"}], 
+           ",", 
+           RowBox[{"arrow", "[", 
+            RowBox[{"\[Pi]", ",", "\[Theta]"}], "]"}], ",", 
+           RowBox[{"arrow", "[", 
+            RowBox[{
+             FractionBox[
+              RowBox[{"4", " ", "\[Pi]"}], "3"], ",", "\[Theta]"}], "]"}], 
+           ",", 
+           RowBox[{"arrow", "[", 
+            RowBox[{
+             FractionBox[
+              RowBox[{"5", " ", "\[Pi]"}], "3"], ",", "\[Theta]"}], "]"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"Text", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"N", "@", "\[Theta]"}], "*", 
+              FractionBox["180", "\[Pi]"], "\"\<\[Degree]\>\""}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0.7", ",", "0.2"}], "}"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Circle", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"1", ",", "0"}], "}"}], ",", "0.1", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\[Pi]", "-", "\[Theta]"}], ",", "\[Pi]"}], "}"}]}], 
+            "]"}]}], "\[IndentingNewLine]", "}"}]}]}], "\[IndentingNewLine]", 
+       "]"}], "\[IndentingNewLine]", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\[Theta]", ",", 
+          RowBox[{"90", "Degree"}]}], "}"}], ",", 
+        RowBox[{"80", "Degree"}], ",", 
+        RowBox[{"100", "Degree"}]}], "}"}]}], "\[IndentingNewLine]", 
+     "]"}]}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.895717052210764*^9, 3.895717236901658*^9}, {
+  3.895717381738659*^9, 3.8957175296943207`*^9}, {3.895717567791058*^9, 
+  3.895717825401251*^9}, {3.895717877166205*^9, 3.895717889901362*^9}, {
+  3.895718020671629*^9, 3.895718054923377*^9}, {3.89571811850152*^9, 
+  3.89571817172612*^9}, {3.895718258377281*^9, 3.895718261613184*^9}, {
+  3.895718336984241*^9, 3.895718394241296*^9}},
+ CellLabel->
+  "In[121]:=",ExpressionUUID->"a0e5bf21-6e5a-4698-be3d-eaf146a181ae"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Theta]$$ = 90 Degree, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Theta]$$], 90 Degree}, 80 Degree, 100 Degree}}, 
+    Typeset`size$$ = {324., {161., 165.5224609375}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Theta]$$ = 90 Degree}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ParametricPlot[
+        $CellContext`c2vec$125654[
+         $CellContext`z$125654[$CellContext`t, $CellContext`\[Theta]$$]], \
+{$CellContext`t, 0, 2 Pi}, PlotRange -> {{-2, 2}, {-2, 2}}, Prolog -> {
+          $CellContext`arrow$125654[0, $CellContext`\[Theta]$$], 
+          $CellContext`arrow$125654[Pi/3, $CellContext`\[Theta]$$], 
+          $CellContext`arrow$125654[2 Pi/3, $CellContext`\[Theta]$$], 
+          $CellContext`arrow$125654[Pi, $CellContext`\[Theta]$$], 
+          $CellContext`arrow$125654[4 Pi/3, $CellContext`\[Theta]$$], 
+          $CellContext`arrow$125654[5 Pi/3, $CellContext`\[Theta]$$], 
+          Text[N[$CellContext`\[Theta]$$] (180/Pi) "\[Degree]", {0.7, 0.2}], 
+          Circle[{1, 0}, 0.1, {Pi - $CellContext`\[Theta]$$, Pi}]}], 
+      "Specifications" :> {{{$CellContext`\[Theta]$$, 90 Degree}, 80 Degree, 
+         100 Degree}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{566., {188.9365234375, 194.0634765625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.895719980999507*^9},
+ CellLabel->
+  "Out[121]=",ExpressionUUID->"62d338a8-0b3b-4d59-a18e-498045226a0d"]
+}, Open  ]]
+},
+WindowSize->{960., 564.375},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+Magnification:>0.9 Inherited,
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6af71489-86c3-4ef5-9633-6472ad5d04aa"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 214, 3, 29, "Input",ExpressionUUID->"bf96b898-5447-4fd6-a775-9e362260780e"],
+Cell[CellGroupData[{
+Cell[797, 27, 5093, 131, 517, "Input",ExpressionUUID->"a0e5bf21-6e5a-4698-be3d-eaf146a181ae"],
+Cell[5893, 160, 2421, 44, 400, "Output",ExpressionUUID->"62d338a8-0b3b-4d59-a18e-498045226a0d"]
+}, Open  ]]
+}
+]
+*)
+
