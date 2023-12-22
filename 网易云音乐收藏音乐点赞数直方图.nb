@@ -1,0 +1,172 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6353,        164]
+NotebookOptionsPosition[      5399,        141]
+NotebookOutlinePosition[      5811,        158]
+CellTagsIndexPosition[      5768,        155]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\"\<`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.912156213108532*^9, 3.912156214945121*^9}},
+ CellLabel->
+  "In[104]:=",ExpressionUUID->"2f0e2015-1e28-4064-88b1-7c9f4395ce0d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"intItpr", "=", "Internal`StringToMInteger"}], ";"}]], "Input",
+ CellChangeTimes->{{3.9121554646110067`*^9, 3.912155525795505*^9}},
+ CellLabel->
+  "In[105]:=",ExpressionUUID->"591ebb1e-d21d-4c82-8639-2665ecb9b071"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"text", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\</mnt/4T/last/zhc/Documents/ncm/\:548c\:94b1\:79d1\:7fbd \:7f51\:6613\
+\:4e91\:559c\:6b22\:7684\:6b4c \:4e0e\:8bc4\:8bba\:6570 \
+\:6392\:5e8f/bczhc-ncm-fav-sort\>\"", ",", "\"\<Text\>\""}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.912155420069292*^9, 3.912155440132244*^9}, {
+  3.9121556665691442`*^9, 3.9121556677756023`*^9}},
+ CellLabel->
+  "In[106]:=",ExpressionUUID->"fb03fb51-015f-4f6a-8df2-c5a170afd55e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"intItpr", "@", 
+      RowBox[{
+       RowBox[{"StringSplit", "[", 
+        RowBox[{"#", ",", "\"\< \>\""}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], "&"}], "/@", 
+    RowBox[{"StringSplit", "[", 
+     RowBox[{"text", ",", "\"\<\\n\>\""}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.912155542362619*^9, 3.91215557089266*^9}},
+ CellLabel->
+  "In[107]:=",ExpressionUUID->"1ccd6701-d661-4a42-adca-7c43a4ccbc54"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"max", "=", 
+   RowBox[{"Max", "[", "data", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9121565126625443`*^9, 3.912156521285462*^9}},
+ CellLabel->
+  "In[134]:=",ExpressionUUID->"957c5e0c-dced-41d8-98e2-f7bcc89166a4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Histogram", "[", 
+    RowBox[{"data", ",", 
+     RowBox[{"IntegerPart", "[", "bspec", "]"}], ",", "\"\<Count\>\"", ",", 
+     RowBox[{"PlotRange", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "end"}], "}"}], ",", "All"}], "}"}]}], ",", 
+     RowBox[{"ImageSize", "->", "Large"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"bspec", ",", "10", ",", "10000"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"end", ",", "10", ",", "max"}], "}"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9121555722193317`*^9, 3.9121555992352123`*^9}, {
+  3.9121561382926826`*^9, 3.9121561960353107`*^9}, {3.91215622933327*^9, 
+  3.912156320115117*^9}, {3.9121564106166697`*^9, 3.912156579142435*^9}},
+ CellLabel->
+  "In[138]:=",ExpressionUUID->"76bb512e-4554-4649-b83d-3bb2df3d859c"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`bspec$$ = 20000, $CellContext`end$$ = 1000.,
+     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`bspec$$], 10, 10000}, {
+      Hold[$CellContext`end$$], 10, 629889}}, Typeset`size$$ = {
+    576., {177., 181.12223748450702`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`bspec$$ = 10, $CellContext`end$$ = 10}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Histogram[$CellContext`data, 
+        IntegerPart[$CellContext`bspec$$], "Count", 
+        PlotRange -> {{0, $CellContext`end$$}, All}, ImageSize -> Large], 
+      "Specifications" :> {{$CellContext`bspec$$, 10, 
+         10000}, {$CellContext`end$$, 10, 629889}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{622., {255.63671875, 261.36328125}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.912156233074461*^9, 3.91215632031037*^9}, {
+  3.9121564177844677`*^9, 3.912156470523981*^9}, {3.91215652413151*^9, 
+  3.912156579571218*^9}, {3.912156628500153*^9, 3.912156669609589*^9}},
+ CellLabel->
+  "Out[138]=",ExpressionUUID->"735fef5e-9438-4535-8c99-578bb63e4968"]
+}, Open  ]]
+},
+WindowSize->{1280., 688.5},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+DockedCells->{},
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"e64d7750-afb9-467e-bb63-3a14c30843a5"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 216, 4, 32, "Input",ExpressionUUID->"2f0e2015-1e28-4064-88b1-7c9f4395ce0d"],
+Cell[777, 26, 248, 5, 30, "Input",ExpressionUUID->"591ebb1e-d21d-4c82-8639-2665ecb9b071"],
+Cell[1028, 33, 516, 12, 32, "Input",ExpressionUUID->"fb03fb51-015f-4f6a-8df2-c5a170afd55e"],
+Cell[1547, 47, 514, 14, 32, "Input",ExpressionUUID->"1ccd6701-d661-4a42-adca-7c43a4ccbc54"],
+Cell[2064, 63, 254, 6, 30, "Input",ExpressionUUID->"957c5e0c-dced-41d8-98e2-f7bcc89166a4"],
+Cell[CellGroupData[{
+Cell[2343, 73, 977, 23, 116, "Input",ExpressionUUID->"76bb512e-4554-4649-b83d-3bb2df3d859c"],
+Cell[3323, 98, 2060, 40, 536, "Output",ExpressionUUID->"735fef5e-9438-4535-8c99-578bb63e4968"]
+}, Open  ]]
+}
+]
+*)
+
